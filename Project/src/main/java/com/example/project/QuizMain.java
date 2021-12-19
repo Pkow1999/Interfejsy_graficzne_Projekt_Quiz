@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class QuizMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(QuizMain.class.getResource("main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+        stage.setTitle("Quizowanie!");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,2 +1,2 @@
 # Interfejsy_graficzne_Projekt_Quiz
-QUIIIIIIIIIIIIIIZY
+KWIZ (Kompendium Wiedzy i Zabawy) – aplikacja służąca do rozwiązywania quizów i zadań.

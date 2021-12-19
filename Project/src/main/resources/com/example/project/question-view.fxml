@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.project.ControllerPlayTest">
+    <Label fx:id="questionText" text="Kliknij no przycisk"/>
+    <HBox alignment="TOP_CENTER" spacing="50.0">
+        <Button text="Hello!" onAction="#onHello1ButtonClick"/>
+        <Button text="Hello!" onAction="#onHello2ButtonClick"/>
+    </HBox>
+    <HBox alignment="BOTTOM_CENTER" spacing="50.0">
+
+        <Button text="Hello!" onAction="#onHello3ButtonClick"/>
+        <Button text="Hello!" onAction="#onHello4ButtonClick"/>
+    </HBox>
+</VBox>
