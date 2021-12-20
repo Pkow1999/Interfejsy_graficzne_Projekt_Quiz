@@ -22,7 +22,8 @@ public class ControllerAddQuestion {
     private Stage stage;
     @FXML
     protected void onExitButtonClick(ActionEvent event) throws IOException {
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozpierdala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        //TODO
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
