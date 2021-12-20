@@ -24,7 +24,7 @@
       <TextField alignment="CENTER" layoutX="272.0" layoutY="320.0" prefHeight="35.0" prefWidth="250.0" />
       <TextField alignment="CENTER" layoutX="272.0" layoutY="390.0" prefHeight="35.0" prefWidth="250.0" />
       <TextField alignment="CENTER" layoutX="272.0" layoutY="460.0" prefHeight="35.0" prefWidth="250.0" />
-      <Button  onAction="#onExitButtonClick" layoutX="84.0" layoutY="539.0" mnemonicParsing="false" text="Cofnij"/>
-      <Button onAction="#onExitButtonClick" layoutX="336.0" layoutY="522.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="129.0" text="Zatwierdz pytanie" />
+      <Button onAction="#onReturnButtonClick" layoutX="84.0" layoutY="539.0" mnemonicParsing="false" text="Cofnij"/>
+      <Button onAction="#onEnterQButtonClick" layoutX="336.0" layoutY="522.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="129.0" text="Zatwierdz pytanie" />
    </children>
 </Pane>

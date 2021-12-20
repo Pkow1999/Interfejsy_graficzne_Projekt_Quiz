@@ -1,5 +1,6 @@
 package com.example.project;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +28,7 @@ public class ControllerAddQuestion {
     private Scene home_page_scene;
     private Stage stage;
     @FXML
-    protected void onExitButtonClick(ActionEvent event) throws IOException {
+    protected void onReturnButtonClick(ActionEvent event) throws IOException {
         home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozpierdala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
         //TODO
         home_page_scene =  new Scene(home_page_parent);
@@ -46,5 +47,20 @@ public class ControllerAddQuestion {
             category.setText(ENGLISH.getText());
         else if (event.getTarget().equals(MATH))
             category.setText(MATH.getText());
+    }
+    @FXML
+    protected void onEnterQButtonClick(ActionEvent event) throws IOException {
+        stage = new Stage();//robimy nowe okienko
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
+        Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+        stage.setTitle("Quizowanie!");
+        stage.setScene(home_page_scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public void onExitButtonClick(ActionEvent event) {
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }
