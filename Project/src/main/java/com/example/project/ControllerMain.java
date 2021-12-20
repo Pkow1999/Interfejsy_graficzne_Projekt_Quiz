@@ -29,7 +29,13 @@ public class ControllerMain {
         stage.show();
     }
     @FXML
-    protected void onAddQuestionButtonClick() {welcomeText.setText("Pytanie dodac chcesz hmmmm?");}
+    protected void onAddQuestionButtonClick(ActionEvent event) throws IOException {
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("new.fxml")));
+        home_page_scene =  new Scene(home_page_parent, 800,600);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(home_page_scene);
+        stage.show();
+    }
     @FXML
     protected void onCheckHistoryClick() {welcomeText.setText("Historii nie zmienisz.");}
     @FXML
