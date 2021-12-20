@@ -53,7 +53,6 @@ public class ControllerAddQuestion {
         stage = new Stage();//robimy nowe okienko
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
         Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
-        stage.setTitle("Quizowanie!");
         stage.setScene(home_page_scene);
         stage.setResizable(false);
         stage.show();
