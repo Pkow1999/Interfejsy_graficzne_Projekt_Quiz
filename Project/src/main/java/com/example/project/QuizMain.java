@@ -11,9 +11,10 @@ public class QuizMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(QuizMain.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+        Scene scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
         stage.setTitle("Quizowanie!");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

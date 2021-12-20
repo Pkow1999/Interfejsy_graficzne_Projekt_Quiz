@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerMain">
+<VBox alignment="CENTER" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerMain">
    <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="600.0">
       <children>
           <Label fx:id="welcomeText" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="254.0" prefWidth="600.0" text="Witaj w Kwizzie" textAlignment="CENTER" wrapText="true">
