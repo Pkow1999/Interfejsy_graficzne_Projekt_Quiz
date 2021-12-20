@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.HBox?>
-
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.project.ControllerMain">
-    <Label fx:id="welcomeText" alignment="TOP_CENTER" text="Witaj w Kwizzie"/>
-    <Button text="Rozwiąż quiz" onAction="#onPlayButtonClick"/>
-    <Button text="Dodaj Pytanie" onAction="#onAddQuestionButtonClick"/>
-    <Button text="Sprawdź Historię" onAction="#onCheckHistoryClick"/>
-    <Button text="Wyjdź" onAction="#onExitClick"/>
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="600.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.project.ControllerMain">
+   <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="600.0">
+      <children>
+          <Label fx:id="welcomeText" alignment="TOP_CENTER" prefHeight="73.0" prefWidth="411.0" text="Witaj w Kwizzie">
+            <font>
+               <Font size="50.0" />
+            </font>
+         </Label>
+      </children>
+   </VBox>
+   <VBox prefHeight="200.0" prefWidth="100.0">
+      <children>
+          <Button alignment="CENTER" contentDisplay="CENTER" onAction="#onPlayButtonClick" prefHeight="25.0" prefWidth="305.0" text="Rozwiąż quiz" />
+          <Button onAction="#onCheckHistoryClick" text="Sprawdź Historię" />
+          <Button onAction="#onAddQuestionButtonClick" text="Dodaj Pytanie" />
+          <Button onAction="#onExitClick" text="Wyjdź" />
+      </children>
+   </VBox>
 
 </VBox>
