@@ -11,17 +11,20 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ControllerMain {
     @FXML
     private Label welcomeText;
 
+    private Parent home_page_parent;
+    private Scene home_page_scene;
+    private Stage stage;
     @FXML
     protected void onPlayButtonClick(ActionEvent event) throws IOException {
-        welcomeText.setText("Zagrajmy noooo");
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("question-view.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent, 320,240);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
+        home_page_scene =  new Scene(home_page_parent, 800,600);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
         stage.show();
     }

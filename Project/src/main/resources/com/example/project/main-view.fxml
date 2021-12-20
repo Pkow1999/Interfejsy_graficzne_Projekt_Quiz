@@ -15,7 +15,7 @@
          </Label>
       </children>
    </VBox>
-   <VBox prefHeight="200.0" prefWidth="100.0">
+   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20">
       <children>
           <Button alignment="CENTER" contentDisplay="CENTER" onAction="#onPlayButtonClick" prefHeight="25.0" prefWidth="305.0" text="Rozwiąż quiz" />
           <Button onAction="#onCheckHistoryClick" text="Sprawdź Historię" />
