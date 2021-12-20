@@ -8,7 +8,8 @@
 
 <Pane maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerPlayTest">
    <children>
-       <Label fx:id="questionText" alignment="CENTER" lineSpacing="1.0" prefHeight="267.0" prefWidth="600.0" text="Kliknij no przycisk" wrapText="true">
+      <Button mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="25.0" prefWidth="150.0" text="Wróć do menu" />
+       <Label fx:id="questionText" alignment="CENTER" layoutY="26.0" lineSpacing="1.0" prefHeight="242.0" prefWidth="600.0" text="Kliknij no przycisk" wrapText="true">
          <font>
             <Font size="40.0" />
          </font>
