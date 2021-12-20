@@ -9,15 +9,14 @@
 
 
 <Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0"
-      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerAddQuestion">
+          xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerAddQuestion">
    <children>
-      <MenuButton layoutX="45.0" layoutY="68.0" mnemonicParsing="false" text="Wybierz Kategorie">
+      <MenuButton fx:id="category" layoutX="45.0" layoutY="68.0" mnemonicParsing="false" text="Wybierz Kategorie">
         <items>
-
-            <MenuItem mnemonicParsing="false" text="Język Polski" />
-            <MenuItem mnemonicParsing="false" text="Język Angielski" />
-          <MenuItem mnemonicParsing="false" text="Matematyka" />
-          <MenuItem mnemonicParsing="false" text="Historia" />
+            <MenuItem fx:id="POLISH" mnemonicParsing="false" text="Język Polski" onAction="#ChangeCategory"/>
+            <MenuItem fx:id="ENGLISH" mnemonicParsing="false" text="Język Angielski"  onAction="#ChangeCategory"/>
+          <MenuItem fx:id="MATH" mnemonicParsing="false" text="Matematyka"  onAction="#ChangeCategory"/>
+          <MenuItem fx:id="HISTORY" mnemonicParsing="false" text="Historia"  onAction="#ChangeCategory"/>
         </items>
       </MenuButton>
       <TextArea layoutX="220.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="350.0" promptText="Pytanie Brzmi:" wrapText="true" />

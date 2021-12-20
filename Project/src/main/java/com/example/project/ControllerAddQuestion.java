@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,6 +18,10 @@ public class ControllerAddQuestion {
     @FXML
     private Label questionText;
 
+    @FXML
+    private MenuButton category;
+    @FXML
+    private MenuItem POLISH,HISTORY,ENGLISH,MATH;
 
     private Parent home_page_parent;
     private Scene home_page_scene;
@@ -28,5 +34,17 @@ public class ControllerAddQuestion {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
         stage.show();
+    }
+    @FXML
+    protected void ChangeCategory(ActionEvent event) {
+        //powinno dac rade to zrobic bardziej elegancko, ale nie mam teraz pojecia jak
+        if(event.getTarget().equals(POLISH))
+            category.setText(POLISH.getText());
+        else if (event.getTarget().equals(HISTORY))
+            category.setText(HISTORY.getText());
+        else if (event.getTarget().equals(ENGLISH))
+            category.setText(ENGLISH.getText());
+        else if (event.getTarget().equals(MATH))
+            category.setText(MATH.getText());
     }
 }
