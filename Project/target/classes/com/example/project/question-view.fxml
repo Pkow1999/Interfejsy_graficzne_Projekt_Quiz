@@ -4,42 +4,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerPlayTest">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerPlayTest">
    <children>
-      <Button mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="25.0" prefWidth="150.0" text="Wróć do menu" />
-       <Label fx:id="questionText" alignment="CENTER" layoutY="26.0" lineSpacing="1.0" prefHeight="242.0" prefWidth="600.0" text="Kliknij no przycisk" wrapText="true">
+      <Button layoutX="753.0" layoutY="5.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 300;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fffec" height="200.0" layoutX="64.0" layoutY="112.0" stroke="BLACK" strokeType="INSIDE" width="674.0" />
+       <Label fx:id="questionText" alignment="CENTER" layoutX="100.0" layoutY="122.0" lineSpacing="1.0" prefHeight="180.0" prefWidth="600.0" text="Kliknij no przycisk" wrapText="true">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-       <HBox alignment="CENTER" layoutY="534.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="600.0" spacing="50.0">
+       <HBox alignment="CENTER" layoutX="1.0" layoutY="431.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="800.0" spacing="50.0">
    
-              <Button onAction="#onHello3ButtonClick" prefHeight="150.0" prefWidth="250.0" text="Hello!">
+                       <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello3ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #a4c639; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!">
             <font>
                <Font size="29.0" />
             </font>
          </Button>
-           <Button onAction="#onHello1ButtonClick" prefHeight="150.0" prefWidth="250.0" text="Hello!">
+           <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello1ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #6699cc; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!">
             <font>
                <Font size="30.0" />
             </font>
          </Button>
        </HBox>
-       <HBox alignment="CENTER" layoutY="267.0" prefHeight="267.0" prefWidth="600.0" spacing="50.0">
+       <HBox alignment="CENTER" layoutX="1.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="800.0" spacing="50.0">
          <children>
-              <Button onAction="#onHello4ButtonClick" prefHeight="150.0" prefWidth="250.0" text="Hello!">
+              <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello4ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #fefe33; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!" wrapText="true">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-              <Button onAction="#onHello2ButtonClick" prefHeight="150.0" prefWidth="250.0" text="Hello!">
+              <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello2ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #ff5349; -fx-border-radius: 10; -fx-border-color: #000000;" text="Hello!">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
          </children>
        </HBox>
+      <Text layoutX="758.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wróć" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cb1fff" height="74.0" layoutX="257.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="287.0" />
+      <Label alignment="CENTER" layoutX="257.0" layoutY="17.0" prefHeight="74.0" prefWidth="287.0" text="Pytanie nr 5/10">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="74.0" layoutX="33.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="147.0" />
+      <Label alignment="CENTER" layoutX="33.0" layoutY="25.0" prefHeight="74.0" prefWidth="147.0" text="20:30">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
