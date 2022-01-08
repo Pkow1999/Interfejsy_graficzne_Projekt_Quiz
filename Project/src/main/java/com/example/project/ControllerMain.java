@@ -6,20 +6,68 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.application.Platform;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class ControllerMain {
+    public static boolean logOn = false;//zmienna ktora przechowywuje czy jestes zalogowany
+    @FXML
+    private Button LoginButton;
+    @FXML
+    private Text LoginText;
     @FXML
     private Label welcomeText;
 
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
+    @FXML
+    protected void onLoginClick(ActionEvent event) throws IOException {
+        //Zamykamy stare okienko
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+
+        stage = new Stage();//robimy nowe okienko z ekranem logowania
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+        stage.setScene(home_page_scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    @FXML
+    protected void onLoginClickedClick(ActionEvent event) throws IOException {
+        logOn = true;
+        //zamykamy okienko z logowaniem
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+        //otwieramy okienko main po zalogowaniu
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainLogged-view.fxml")));
+        home_page_scene =  new Scene(home_page_parent);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(home_page_scene);
+        stage.show();
+    }
+
+
+    @FXML
+    protected void onBackClicked(ActionEvent event) throws IOException {
+        //zamykamy okienko z logowaniem
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+        //otwieramy okienko main po zalogowaniu
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
+        home_page_scene =  new Scene(home_page_parent);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(home_page_scene);
+        stage.show();
+    }
+
     @FXML
     protected void onPlayButtonClick(ActionEvent event) throws IOException {
         home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
@@ -37,7 +85,9 @@ public class ControllerMain {
         stage.show();
     }
     @FXML
-    protected void onCheckHistoryClick() {welcomeText.setText("Historii nie zmienisz.");}
+    protected void onCheckHistoryClick() {
+        welcomeText.setText("Historii nie zmienisz.");
+    }
     @FXML
     protected void onExitClick()
     {
