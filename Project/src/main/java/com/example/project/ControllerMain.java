@@ -28,6 +28,25 @@ public class ControllerMain {
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
+    public ControllerMain()
+    {
+        LoginText = new Text();
+    }
+    @FXML
+    public void initialize()
+    {
+        if(getLogOn())
+        {
+            System.out.println("LOGGED");
+            LoginText.setText("Wyloguj:");
+        }
+        else
+        {
+
+            System.out.println("UNLOGGED");
+            LoginText.setText("Zaloguj:");
+        }
+    }
     @FXML
     protected void onLoginClick(ActionEvent event) throws IOException {
         //Zamykamy stare okienko
@@ -59,7 +78,7 @@ public class ControllerMain {
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.close();
         //otwieramy okienko main po zalogowaniu
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainLogged-view.fxml")));
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);

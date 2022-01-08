@@ -33,7 +33,7 @@ public class ControllerPlayTest {
         //to jest czek ktory sprawdza czy ładuje view zalogowanego czy nie
         if (!ControllerMain.getLogOn())
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
-        else home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainLogged-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        else home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
 
         //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej(CHYBA!!)
         //TODO
