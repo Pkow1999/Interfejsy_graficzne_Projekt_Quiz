@@ -40,7 +40,9 @@ public class ControllerPlayTest {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Quizowanie!");
+        if(!ControllerMain.getLogOn())
+            stage.setTitle("Quizowanie!");
+        else stage.setTitle("Quizowanie - Zalogowany!");
         stage.setResizable(false);
         stage.show();
     }

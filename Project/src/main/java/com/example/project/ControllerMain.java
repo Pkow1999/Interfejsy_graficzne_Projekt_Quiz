@@ -63,7 +63,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Quizowanie!");
+        stage.setTitle("Quizowanie - Zalogowany!");
         stage.show();
     }
 
@@ -88,7 +88,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Quizowanie!");
+        stage.setTitle("Rozwiązywanie Quizu!");
         stage.show();
     }
     @FXML

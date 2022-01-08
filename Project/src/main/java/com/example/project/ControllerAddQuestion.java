@@ -1,32 +1,34 @@
 package com.example.project;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
+
 public class ControllerAddQuestion {
     @FXML
-    private Label questionText;
-
+    private TextArea textArea;
+    @FXML
+    private TextField Good,Bad1,Bad2,Bad3;//textfieldy zawierajacy odpowiedzi
     @FXML
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
-
+    static private Boolean[] errors = {true, false, false};//tablica posiadajaca errory mozliwe w dodawaniu pytania
+    //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
+
     @FXML
     protected void onReturnButtonClick(ActionEvent event) throws IOException {
         //to jest czek ktory sprawdza czy ładuje view zalogowanego czy nie
@@ -38,7 +40,9 @@ public class ControllerAddQuestion {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Quizowanie!");
+        if(!ControllerMain.getLogOn())
+            stage.setTitle("Quizowanie!");
+        else stage.setTitle("Quizowanie - Zalogowany!");
         stage.show();
     }
     @FXML
@@ -52,6 +56,7 @@ public class ControllerAddQuestion {
             category.setText(ENGLISH.getText());
         else if (event.getTarget().equals(MATH))
             category.setText(MATH.getText());
+        errors[0] = false;
     }
     @FXML
     protected void onEnterQButtonClick(ActionEvent event) throws IOException {
@@ -62,9 +67,28 @@ public class ControllerAddQuestion {
         stage.setResizable(false);
         stage.show();
     }
+    public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
+    {
+        if(errors[0])
+            return "Proszę, wybrać kategorię";
+        else if(errors[1])
+            return "Proszę, uzupełnić odpowiedzi";
+        else if(errors[2])
+            return "Proszę, uzupełnić pytanie";
+        else return "Pytanie zostało wysłane do zatwierdzenia";
+    }
 
-    public void onExitButtonClick(ActionEvent event) {
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+    @FXML
+    private void onReturnTextClick(KeyEvent keyEvent) {//metoda ktora sprawdza czy pola zostaly uzupelnione PO puszczeniu przycisku
+        //bez tej funkcji moga pojawic sie opoznienia i bedzie trzeba naprzyklad kliknac w nowy textfield albo w okno aby dane zostaly zaakceptowane
+        if(Good.getText().equals("") || Bad1.getText().equals("") || Bad2.getText().equals("") || Bad3.getText().equals(""))//sprawdzamy czy wszystkie odpowiedzi maja cos w sobie
+        {
+            errors[1] = true;
+        }
+        else errors[1] = false;
+        if(textArea.getText().equals(""))//sprawdzamy czy w pytaniu nie ma pustego stringa
+        {
+            errors[2] = true;
+        } else errors[2] = false;
     }
 }
