@@ -38,6 +38,7 @@ public class ControllerMain {
         Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
         stage.setScene(home_page_scene);
         stage.setResizable(false);
+        stage.setTitle("Zaloguj się!");
         stage.show();
     }
     @FXML
@@ -51,6 +52,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
+        stage.setTitle("Quizowanie!");
         stage.show();
     }
 
@@ -65,6 +67,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
+        stage.setTitle("Quizowanie!");
         stage.show();
     }
 
@@ -74,6 +77,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
+        stage.setTitle("Quizowanie!");
         stage.show();
     }
     @FXML
@@ -82,6 +86,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
+        stage.setTitle("Dodaj pytanie!");
         stage.show();
     }
     @FXML
