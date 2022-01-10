@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.application.Platform;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -17,6 +19,9 @@ import java.util.Objects;
 
 public class ControllerMain {
     private static boolean logOn = false;//zmienna ktora przechowywuje czy jestes zalogowany
+    @FXML
+    public ImageView ImageView;
+
     public static boolean getLogOn(){return logOn;}
     @FXML
     private Text LoginText;
@@ -36,6 +41,9 @@ public class ControllerMain {
         if(getLogOn())
         {
             LoginText.setText("Wyloguj:");
+            ImageView.setImage(new Image(getClass().getResourceAsStream("logout.png")));
+            ImageView.setFitHeight(50);
+            ImageView.setFitWidth(50);
         }
         else
         {
