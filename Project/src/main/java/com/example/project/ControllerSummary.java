@@ -108,8 +108,8 @@ public class ControllerSummary {
             if(ControllerPlayTest.AnswerQuestion[i])
                 counter++;
             percentageLabel.setText(counter * 10 +"%");
-            timeLabel.setText(String.valueOf(Questions.timeAll));
-            punctationLabel.setText(String.valueOf(Questions.punctation));
+            timeLabel.setText(String.valueOf(Questions.timeAll)+" sek.");
+            punctationLabel.setText(String.valueOf(Questions.punctation)+" pkt.");
     }
 
     public void ButtonExitClick(ActionEvent event) throws IOException {
