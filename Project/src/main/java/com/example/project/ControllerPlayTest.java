@@ -94,8 +94,6 @@ public class ControllerPlayTest  {
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
-            System.out.println("Licznik");
-            System.out.println(home_page_parent);
             time--;
             timerLabel.setText(time.toString());
             if(time < 1) {
@@ -114,19 +112,11 @@ public class ControllerPlayTest  {
         if(((Button)event.getSource()).getText().equals(zasobnik.get(Questions.questionIndex)[1]))
         {
             Questions.punctation += 54*time;
-            System.out.println(timeCurrent);
             AnswerQuestion[Questions.questionIndex] = true;
         }
         Questions.questionIndex++;
         if(Questions.questionIndex > 9)
         {
-            int counter = 0;
-            for(int i = 0 ; i < 10; i++)
-            {
-                if(AnswerQuestion[i])
-                    counter++;
-            }
-            System.out.println(counter);
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("summary.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
