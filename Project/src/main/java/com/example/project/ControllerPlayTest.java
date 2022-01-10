@@ -49,7 +49,6 @@ public class ControllerPlayTest  {
     private static Integer time;
     private Timeline timeline;
 
-    public static int timeAll;
     public ControllerPlayTest()
     {
         exitButton = new Button();
@@ -112,9 +111,9 @@ public class ControllerPlayTest  {
         timeline.stop();
         int timeCurrent = 20-time;
         Questions.timeAll += timeCurrent;
-        Questions.punctation += 54*timeCurrent;
         if(((Button)event.getSource()).getText().equals(zasobnik.get(Questions.questionIndex)[1]))
         {
+            Questions.punctation += 54*timeCurrent;
             AnswerQuestion[Questions.questionIndex] = true;
         }
         Questions.questionIndex++;
