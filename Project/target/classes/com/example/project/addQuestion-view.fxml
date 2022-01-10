@@ -6,10 +6,12 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerAddQuestion">
+<Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerAddQuestion">
    <children>
       <MenuButton fx:id="category" layoutX="45.0" layoutY="68.0" mnemonicParsing="false" text="Wybierz Kategorie">
         <items>
@@ -30,7 +32,14 @@
       <TextField fx:id="Bad1" alignment="CENTER" layoutX="272.0" layoutY="320.0" onKeyReleased="#onReturnTextClick" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff5349; -fx-border-color: #000000;" />
       <TextField fx:id="Bad2" alignment="CENTER" layoutX="272.0" layoutY="390.0" onKeyReleased="#onReturnTextClick" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff5349; -fx-border-color: #000000;" />
       <TextField fx:id="Bad3" alignment="CENTER" layoutX="272.0" layoutY="460.0" onKeyReleased="#onReturnTextClick" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff5349; -fx-border-color: #000000;" />
-      <Button layoutX="84.0" layoutY="539.0" mnemonicParsing="false" onAction="#onReturnButtonClick" text="Cofnij" />
+      <Button layoutX="737.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+         <graphic>
+            <ImageView fitHeight="53.0" fitWidth="47.0">
+               <image>
+                  <Image url="@return.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Button layoutX="336.0" layoutY="522.0" mnemonicParsing="false" onAction="#onEnterQButtonClick" prefHeight="35.0" prefWidth="129.0" text="Zatwierdz pytanie" />
    </children>
 </Pane>

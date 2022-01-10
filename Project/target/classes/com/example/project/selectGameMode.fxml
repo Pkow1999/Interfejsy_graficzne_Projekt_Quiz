@@ -6,10 +6,12 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.controllerSelectGameMode">
+<Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.controllerSelectGameMode">
    <children>
       <Label alignment="CENTER" layoutX="262.0" layoutY="14.0" prefHeight="50.0" prefWidth="250.0" text="Wybierz tryb gry">
          <font>
@@ -64,5 +66,14 @@
             <Font size="20.0" />
          </font>
       </MenuButton>
+      <Button layoutX="737.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="47.0">
+               <image>
+                  <Image url="@return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </Pane>
