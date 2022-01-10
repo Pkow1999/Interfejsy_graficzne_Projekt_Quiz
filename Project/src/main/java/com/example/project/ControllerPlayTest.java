@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -18,12 +19,12 @@ import java.util.Objects;
 
 public class ControllerPlayTest  {
     @FXML
+    public Button exitButton;
+    @FXML
     private Label questionText;
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
-
-
 
     @FXML
     private Label timerLabel;
@@ -33,6 +34,7 @@ public class ControllerPlayTest  {
 
     public ControllerPlayTest()
     {
+        exitButton = new Button();
         timerLabel = new Label();
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
