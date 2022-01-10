@@ -6,7 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ControllerPopUp {
+public class ControllerAddQuestionPopUp {
     @FXML
     private Text popUpText;
     private Stage stage;
