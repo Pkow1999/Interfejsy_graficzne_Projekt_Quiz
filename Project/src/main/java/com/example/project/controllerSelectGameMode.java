@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class controllerSelectGameMode {
-//ASDASDASDASD
+
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
