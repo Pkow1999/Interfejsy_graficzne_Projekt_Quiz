@@ -78,12 +78,33 @@ public class controllerSelectGameMode {
     }
 
     public void onPlayButtonClick(ActionEvent event) throws IOException {
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
-        home_page_scene =  new Scene(home_page_parent);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(home_page_scene);
-        stage.setTitle("Rozwiązywanie Quizu!");
-        stage.show();
+        boolean czek = false;
+        for(int i = 0; i < 3;i++)
+        {
+            if(errors[i])
+            {
+                czek = true;
+                break;
+            }
+        }
+        if(czek)
+        {
+            stage = new Stage();//robimy nowe okienko
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectGameModePopUp.fxml"));
+            Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+            stage.setScene(home_page_scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        else
+        {
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
+            home_page_scene =  new Scene(home_page_parent);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(home_page_scene);
+            stage.setTitle("Rozwiązywanie Quizu!");
+            stage.show();
+        }
     }
 
     public void onReturnButtonClick(ActionEvent event) throws IOException {
