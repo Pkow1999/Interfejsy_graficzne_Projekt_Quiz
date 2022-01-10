@@ -113,7 +113,8 @@ public class ControllerPlayTest  {
         Questions.timeAll += timeCurrent;
         if(((Button)event.getSource()).getText().equals(zasobnik.get(Questions.questionIndex)[1]))
         {
-            Questions.punctation += 54*timeCurrent;
+            Questions.punctation += 54*time;
+            System.out.println(timeCurrent);
             AnswerQuestion[Questions.questionIndex] = true;
         }
         Questions.questionIndex++;
