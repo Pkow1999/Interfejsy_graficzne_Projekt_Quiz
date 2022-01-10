@@ -61,7 +61,7 @@ public class ControllerAddQuestion {
     @FXML
     protected void onEnterQButtonClick(ActionEvent event) throws IOException {
         stage = new Stage();//robimy nowe okienko
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addQuestionPopUp.fxml"));
         Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
         stage.setScene(home_page_scene);
         stage.setResizable(false);
