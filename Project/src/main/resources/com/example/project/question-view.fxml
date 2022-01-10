@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerPlayTest">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerPlayTest">
    <children>
       <Button fx:id="exitButton" layoutX="737.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 300; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" text="Wróć">
          <font>

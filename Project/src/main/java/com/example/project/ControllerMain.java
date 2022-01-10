@@ -122,12 +122,22 @@ public class ControllerMain {
     }
     @FXML
     protected void onAddQuestionButtonClick(ActionEvent event) throws IOException {
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("addQuestion-view.fxml")));
-        home_page_scene =  new Scene(home_page_parent);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(home_page_scene);
-        stage.setTitle("Dodaj pytanie!");
-        stage.show();
+        if(!getLogOn()){
+            stage = new Stage();//robimy nowe okienko
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("notLoggedInPopUp.fxml"));
+            Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+            stage.setScene(home_page_scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        else {
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("addQuestion-view.fxml")));
+            home_page_scene =  new Scene(home_page_parent);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(home_page_scene);
+            stage.setTitle("Dodaj pytanie!");
+            stage.show();
+        }
     }
     @FXML
     protected void onCheckHistoryClick() throws IOException {
