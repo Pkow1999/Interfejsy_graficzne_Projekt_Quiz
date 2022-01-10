@@ -50,7 +50,7 @@ public class controllerSelectGameMode {
         else if(nauka.isSelected()) {
             gameMode = false;
         }
-        errors[2] = false;
+        errors[0] = false;
     }
 
     public void onLevelOfDifficultyRadioClick(ActionEvent event) {
@@ -85,21 +85,18 @@ public class controllerSelectGameMode {
             category.setText(MATH.getText());
             kategoria = 4;
         }
-        errors[0] = false;
+        errors[2] = false;
     }
 
     public void onPlayButtonClick(ActionEvent event) throws IOException {
-        boolean czek = false;
-        for(int i = 0; i < 3;i++)
-        {
-            if(errors[i])
-            {
-                czek = true;
+        boolean wait = false;
+        for (Boolean error : errors) {
+            if (error) {
+                wait = true;
                 break;
             }
         }
-        if(czek)
-        {
+        if(wait) {
             stage = new Stage();//robimy nowe okienko
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectGameModePopUp.fxml"));
             Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
@@ -107,8 +104,7 @@ public class controllerSelectGameMode {
             stage.setResizable(false);
             stage.show();
         }
-        else
-        {
+        else {
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -137,11 +133,11 @@ public class controllerSelectGameMode {
     public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
     {
         if(errors[0])
-            return "Proszę, wybrać kategorię";
-        else if(errors[1])
             return "Proszę wybrać tryb gry";
-        else if(errors[2])
+        else if(errors[1])
             return "Proszę wybrać poziom trudności";
+        else if(errors[2])
+            return "Proszę, wybrać kategorię";
         else return "Pytanie zostało wysłane do zatwierdzenia";
     }
 }
