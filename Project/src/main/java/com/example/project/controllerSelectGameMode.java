@@ -10,6 +10,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class controllerSelectGameMode {
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
-    static private Boolean[] errors = {true, false, false};//tablica posiadajaca errory mozliwe w dodawaniu pytania
+    static private Boolean[] errors = {true, true, true};//tablica posiadajaca errory mozliwe w dodawaniu pytania
     //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
     @FXML
     private RadioButton test, nauka, szkolaPodstawowa, szkolaSrednia, powtorkaDoMatury;
@@ -46,6 +47,7 @@ public class controllerSelectGameMode {
         else if(nauka.isSelected()) {
             gameMode = false;
         }
+        errors[2] = false;
     }
 
     public void onLevelOfDifficultyRadioClick(ActionEvent event) {
@@ -58,6 +60,7 @@ public class controllerSelectGameMode {
         else if(powtorkaDoMatury.isSelected()) {
             intLevelOfDifficulty = 2;
         }
+        errors[1] = false;
     }
 
     @FXML
@@ -97,5 +100,16 @@ public class controllerSelectGameMode {
             stage.setTitle("Quizowanie!");
         else stage.setTitle("Quizowanie - Zalogowany!");
         stage.show();
+    }
+
+    public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
+    {
+        if(errors[0])
+            return "Proszę, wybrać kategorię";
+        else if(errors[1])
+            return "Proszę wybrać tryb gry";
+        else if(errors[2])
+            return "Proszę wybrać poziom trudności";
+        else return "Pytanie zostało wysłane do zatwierdzenia";
     }
 }
