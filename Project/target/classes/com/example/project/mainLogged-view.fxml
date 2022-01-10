@@ -13,7 +13,7 @@
     <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="750.0">
         <children>
             <Text fx:id="LoginText" strokeType="OUTSIDE" strokeWidth="0.0" text="Wyloguj: " textAlignment="RIGHT" wrappingWidth="70.443359375" />
-         <Button fx:id="LoginButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 3000;" textAlignment="CENTER" />
+         <Button fx:id="LoginButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 3000; -fx-background-image: url(https://edencoding.com/EdenCodingIcon.png);" textAlignment="CENTER" />
         </children>
     </HBox>
     <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="600.0">

@@ -1,6 +1,9 @@
 package com.example.project;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,18 +11,51 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class ControllerPlayTest {
+public class ControllerPlayTest  {
     @FXML
     private Label questionText;
-
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
 
+
+
+    @FXML
+    private Label timerLabel;
+    private static final Integer STARTTIME=20;
+    private static Integer time;
+    private Timeline timeline;
+
+    public ControllerPlayTest()
+    {
+        timerLabel = new Label();
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+    }
+    @FXML
+    public void initialize()
+    {
+        time = STARTTIME;
+        timerLabel.setText(time.toString());
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
+            time--;
+            timerLabel.setText(time.toString());
+            if(time < 1) {
+                timeline.stop();
+            }
+            if(home_page_parent != null)
+                timeline.stop();
+        }));
+        timeline.playFromStart();
+
+    }
     @FXML
     protected void onHello1ButtonClick() {questionText.setText("1");}
     @FXML
