@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 
 //Trzeba te wszystkie metody poukladac i powsadzac w odrebne metody, pozamieniac zmienne na prywatne itp
+//Najlepiej jak najszybciej
 public class Questions {
     static public int questionIndex = 0;
     static public ArrayList<String[]> polskiPytania = new ArrayList<>(
