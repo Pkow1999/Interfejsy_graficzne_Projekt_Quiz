@@ -23,7 +23,7 @@ public class ControllerAddQuestion {
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
-    static private Boolean[] errors = {true, false, false};//tablica posiadajaca errory mozliwe w dodawaniu pytania
+    static private Boolean[] errors = {true, true, true};//tablica posiadajaca errory mozliwe w dodawaniu pytania
     //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
     private Parent home_page_parent;
     private Scene home_page_scene;
@@ -66,6 +66,9 @@ public class ControllerAddQuestion {
         stage.setScene(home_page_scene);
         stage.setResizable(false);
         stage.show();
+        System.out.println(String.valueOf(errors[0]));
+        System.out.println(String.valueOf(errors[1]));
+        System.out.println(String.valueOf(errors[2]));
     }
     public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
     {

@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.application.Platform;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -17,6 +19,9 @@ import java.util.Objects;
 
 public class ControllerMain {
     private static boolean logOn = false;//zmienna ktora przechowywuje czy jestes zalogowany
+    @FXML
+    public ImageView ImageView;
+
     public static boolean getLogOn(){return logOn;}
     @FXML
     private Text LoginText;
@@ -36,6 +41,9 @@ public class ControllerMain {
         if(getLogOn())
         {
             LoginText.setText("Wyloguj:");
+            ImageView.setImage(new Image(getClass().getResourceAsStream("logout.png")));
+            ImageView.setFitHeight(50);
+            ImageView.setFitWidth(50);
         }
         else
         {
@@ -114,12 +122,22 @@ public class ControllerMain {
     }
     @FXML
     protected void onAddQuestionButtonClick(ActionEvent event) throws IOException {
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("addQuestion-view.fxml")));
-        home_page_scene =  new Scene(home_page_parent);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(home_page_scene);
-        stage.setTitle("Dodaj pytanie!");
-        stage.show();
+        if(!getLogOn()){
+            stage = new Stage();//robimy nowe okienko
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("notLoggedInPopUp.fxml"));
+            Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
+            stage.setScene(home_page_scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        else {
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("addQuestion-view.fxml")));
+            home_page_scene =  new Scene(home_page_parent);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(home_page_scene);
+            stage.setTitle("Dodaj pytanie!");
+            stage.show();
+        }
     }
     @FXML
     protected void onCheckHistoryClick() throws IOException {
