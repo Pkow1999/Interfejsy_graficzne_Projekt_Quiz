@@ -30,7 +30,7 @@
    </VBox>
    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
       <children>
-          <Button fx:id="playButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onPlayButtonClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Rozwiąż quiz" />
+          <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onPlayButtonClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Rozwiąż quiz" />
           <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onCheckHistoryClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Sprawdź Historię">
             <VBox.margin>
                <Insets />
