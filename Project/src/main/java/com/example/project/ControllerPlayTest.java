@@ -49,6 +49,7 @@ public class ControllerPlayTest  {
     private static Integer time;
     private Timeline timeline;
 
+    public static int timeAll;
     public ControllerPlayTest()
     {
         exitButton = new Button();
@@ -108,6 +109,10 @@ public class ControllerPlayTest  {
     }
     @FXML
     protected void onHello1ButtonClick(ActionEvent event) throws IOException {
+        timeline.stop();
+        int timeCurrent = 20-time;
+        Questions.timeAll += timeCurrent;
+        Questions.punctation += 54*timeCurrent;
         if(((Button)event.getSource()).getText().equals(zasobnik.get(Questions.questionIndex)[1]))
         {
             AnswerQuestion[Questions.questionIndex] = true;
@@ -122,7 +127,7 @@ public class ControllerPlayTest  {
                     counter++;
             }
             System.out.println(counter);
-            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("summary.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);

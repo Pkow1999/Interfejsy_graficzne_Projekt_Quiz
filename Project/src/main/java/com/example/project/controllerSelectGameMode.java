@@ -37,11 +37,17 @@ public class controllerSelectGameMode {
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
-    static private Boolean[] errors = {true, true, true};//tablica posiadajaca errory mozliwe w dodawaniu pytania
+    static private Boolean[] errors;//tablica posiadajaca errory mozliwe w dodawaniu pytania
     //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
     @FXML
     private RadioButton test, nauka, szkolaPodstawowa, szkolaSrednia, powtorkaDoMatury;
 
+
+    @FXML
+    public void initialize()
+    {
+        errors = new Boolean[]{true, true, true};
+    }
     public void onModeRadioClick(ActionEvent event) {
         if(test.isSelected()) {
             gameMode = true;
@@ -105,6 +111,9 @@ public class controllerSelectGameMode {
             stage.show();
         }
         else {
+            Questions.questionIndex = 0;
+            Questions.timeAll = 0;
+            Questions.punctation = 0;
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

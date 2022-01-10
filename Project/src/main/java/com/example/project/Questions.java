@@ -12,6 +12,8 @@ import java.util.Arrays;
 //Najlepiej jak najszybciej
 public class Questions {
     static public int questionIndex = 0;
+    static public int timeAll = 0;
+    static public int punctation = 0;
     static public ArrayList<String[]> polskiPytania = new ArrayList<>(
         Arrays.asList(
                 new String[]{"Stopień wyższy od wyrazu dobry to", "lepszy", "najlepszy", "dobre", "zły"},
