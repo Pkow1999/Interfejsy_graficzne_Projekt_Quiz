@@ -99,11 +99,17 @@ public class ControllerMain {
 
     @FXML
     protected void onPlayButtonClick(ActionEvent event) throws IOException {
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
+//        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
+//        home_page_scene =  new Scene(home_page_parent);
+//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        stage.setScene(home_page_scene);
+//        stage.setTitle("Rozwiązywanie Quizu!");
+//        stage.show();
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("selectGameMode.fxml")));
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Rozwiązywanie Quizu!");
+        stage.setTitle("Wybierz te gowna!");
         stage.show();
     }
     @FXML
