@@ -6,8 +6,11 @@ import java.util.Arrays;
 /**
  * @author Grzegorz Poreda
  */
-public class Questions {
 
+
+//Trzeba te wszystkie metody poukladac i powsadzac w odrebne metody, pozamieniac zmienne na prywatne itp
+public class Questions {
+    static public int questionIndex = 0;
     static public ArrayList<String[]> polskiPytania = new ArrayList<>(
         Arrays.asList(
                 new String[]{"Stopień wyższy od wyrazu dobry to", "lepszy", "najlepszy", "dobre", "zły"},

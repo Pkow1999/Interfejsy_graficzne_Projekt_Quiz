@@ -23,19 +23,19 @@
             </ImageView>
          </graphic></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fffec" height="200.0" layoutX="64.0" layoutY="112.0" stroke="BLACK" strokeType="INSIDE" width="674.0" />
-       <Label fx:id="questionText" alignment="CENTER" layoutX="100.0" layoutY="122.0" lineSpacing="1.0" prefHeight="180.0" prefWidth="600.0" text="Kliknij no przycisk" wrapText="true">
+       <Label fx:id="QuestionText" alignment="CENTER" layoutX="100.0" layoutY="122.0" lineSpacing="1.0" prefHeight="180.0" prefWidth="600.0" text="Kliknij no przycisk" wrapText="true">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
        <HBox alignment="CENTER" layoutX="1.0" layoutY="431.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="800.0" spacing="50.0">
    
-                       <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello3ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #a4c639; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!">
+                       <Button fx:id="Button3" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello1ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #a4c639; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!">
             <font>
                <Font size="29.0" />
             </font>
          </Button>
-           <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello1ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #6699cc; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!">
+           <Button fx:id="Button1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello1ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #6699cc; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!">
             <font>
                <Font size="30.0" />
             </font>
@@ -43,12 +43,12 @@
        </HBox>
        <HBox alignment="CENTER" layoutX="1.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="800.0" spacing="50.0">
          <children>
-              <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello4ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #fefe33; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!" wrapText="true">
+              <Button fx:id="Button4" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello1ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #fefe33; -fx-border-color: #000000; -fx-border-radius: 10;" text="Hello!" wrapText="true">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-              <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello2ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #ff5349; -fx-border-radius: 10; -fx-border-color: #000000;" text="Hello!">
+              <Button fx:id="Button2" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onHello1ButtonClick" prefHeight="90.0" prefWidth="310.0" style="-fx-background-radius: 10; -fx-background-color: #ff5349; -fx-border-radius: 10; -fx-border-color: #000000;" text="Hello!">
                <font>
                   <Font size="30.0" />
                </font>
@@ -56,7 +56,7 @@
          </children>
        </HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cb1fff" height="74.0" layoutX="257.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="287.0" />
-      <Label alignment="CENTER" layoutX="257.0" layoutY="17.0" prefHeight="74.0" prefWidth="287.0" text="Pytanie nr 5/10">
+      <Label fx:id="QuestionLabel" alignment="CENTER" layoutX="257.0" layoutY="17.0" prefHeight="74.0" prefWidth="287.0" text="Pytanie nr 5/10">
          <font>
             <Font size="25.0" />
          </font>

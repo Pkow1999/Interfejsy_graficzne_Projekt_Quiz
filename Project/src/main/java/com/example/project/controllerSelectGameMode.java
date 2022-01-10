@@ -22,10 +22,13 @@ public class controllerSelectGameMode {
     private Scene home_page_scene;
     private Stage stage;
 
+
+    public static int kategoria = 0;
+
     @FXML
-    private boolean gameMode;
+    public boolean gameMode;
     @FXML
-    private int intLevelOfDifficulty;
+    public int intLevelOfDifficulty;
     @FXML
     private ToggleGroup mode;
     @FXML
@@ -66,14 +69,22 @@ public class controllerSelectGameMode {
     @FXML
     protected void ChangeCategory(ActionEvent event) {
         //powinno dac rade to zrobic bardziej elegancko, ale nie mam teraz pojecia jak
-        if(event.getTarget().equals(POLISH))
+        if(event.getTarget().equals(POLISH)){
             category.setText(POLISH.getText());
-        else if (event.getTarget().equals(HISTORY))
+            kategoria = 1;
+        }
+        else if (event.getTarget().equals(HISTORY)) {
             category.setText(HISTORY.getText());
-        else if (event.getTarget().equals(ENGLISH))
+            kategoria = 2;
+        }
+        else if (event.getTarget().equals(ENGLISH)) {
             category.setText(ENGLISH.getText());
-        else if (event.getTarget().equals(MATH))
+            kategoria = 3;
+        }
+        else if (event.getTarget().equals(MATH)) {
             category.setText(MATH.getText());
+            kategoria = 4;
+        }
         errors[0] = false;
     }
 
