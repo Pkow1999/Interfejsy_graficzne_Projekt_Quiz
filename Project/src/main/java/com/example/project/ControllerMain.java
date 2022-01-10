@@ -117,7 +117,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Wybierz te gowna!");
+        stage.setTitle("Tryby gry");
         stage.show();
     }
     @FXML
