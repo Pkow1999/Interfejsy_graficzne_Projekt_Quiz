@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class ControllerAddQuestionPopUp {
     @FXML
     private Text popUpText;
-    private Stage stage;
+
     @FXML
     public void initialize()//initialize dziala PO konstruktorze i PO FXMLu ALE PRZED showem
     {
@@ -17,7 +17,7 @@ public class ControllerAddQuestionPopUp {
     }
     @FXML
     public void onExitButtonClick(ActionEvent event) {
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 }

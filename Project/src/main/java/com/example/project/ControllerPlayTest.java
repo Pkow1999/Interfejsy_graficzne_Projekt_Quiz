@@ -3,7 +3,6 @@ package com.example.project;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,10 +19,8 @@ import java.util.Collections;
 import java.util.Objects;
 
 
-
 //Trzeba te wszystkie metody poukladac i powsadzac w odrebne metody, pozamieniac zmienne na prywatne
 public class ControllerPlayTest  {
-    static public boolean[] AnswerQuestion = {false, false, false, false, false, false, false, false, false, false};
     @FXML
     public Button Button2;
     @FXML
@@ -59,16 +56,16 @@ public class ControllerPlayTest  {
     @FXML
     public void initialize()
     {
-        QuestionLabel.setText("Pytanie nr " +String.valueOf(Questions.questionIndex+1)+"/10");
-        if(controllerSelectGameMode.kategoria == 1)
+        QuestionLabel.setText("Pytanie nr " + (Questions.getIndex() + 1) +"/10");
+        if(ControllerSelectGameMode.kategoria == 1)
         {
             zasobnik = Questions.polskiPytania;
         }
-        else if(controllerSelectGameMode.kategoria == 2)
+        else if(ControllerSelectGameMode.kategoria == 2)
         {
             zasobnik = Questions.historiaPytania;
         }
-        else if(controllerSelectGameMode.kategoria == 3)
+        else if(ControllerSelectGameMode.kategoria == 3)
         {
             zasobnik = Questions.angielskiPytania;
         }
@@ -76,12 +73,12 @@ public class ControllerPlayTest  {
         {
             zasobnik = Questions.matematykaPytania;
         }
-        QuestionText.setText(zasobnik.get(Questions.questionIndex)[0]);
+        QuestionText.setText(zasobnik.get(Questions.getIndex())[0]);
         ArrayList<String> losu = new ArrayList<>();
-        losu.add(zasobnik.get(Questions.questionIndex)[1]);
-        losu.add(zasobnik.get(Questions.questionIndex)[2]);
-        losu.add(zasobnik.get(Questions.questionIndex)[3]);
-        losu.add(zasobnik.get(Questions.questionIndex)[4]);
+        losu.add(zasobnik.get(Questions.getIndex())[1]);
+        losu.add(zasobnik.get(Questions.getIndex())[2]);
+        losu.add(zasobnik.get(Questions.getIndex())[3]);
+        losu.add(zasobnik.get(Questions.getIndex())[4]);
         Collections.shuffle(losu);
         Button1.setText(losu.get(0));
         Button2.setText(losu.get(1));
@@ -108,14 +105,14 @@ public class ControllerPlayTest  {
     protected void onHello1ButtonClick(ActionEvent event) throws IOException {
         timeline.stop();
         int timeCurrent = 20-time;
-        Questions.timeAll += timeCurrent;
-        if(((Button)event.getSource()).getText().equals(zasobnik.get(Questions.questionIndex)[1]))
+        Questions.addTime(timeCurrent);
+        if(((Button)event.getSource()).getText().equals(zasobnik.get(Questions.getIndex())[1]))
         {
-            Questions.punctation += 54*time;
-            AnswerQuestion[Questions.questionIndex] = true;
+            Questions.increasePunctation(time);
+            Questions.changeAnswer(Questions.getIndex());
         }
-        Questions.questionIndex++;
-        if(Questions.questionIndex > 9)
+        Questions.incrementIndex();
+        if(Questions.getIndex() > 9)
         {
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("summary.fxml")));
             home_page_scene =  new Scene(home_page_parent);
@@ -136,7 +133,7 @@ public class ControllerPlayTest  {
     protected void onExitButtonClick(ActionEvent event) throws IOException {
 
 
-        Questions.questionIndex = 0;
+        Questions.resetIndex();
         //to jest czek ktory sprawdza czy ładuje view zalogowanego czy nie
         if (!ControllerMain.getLogOn())
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej

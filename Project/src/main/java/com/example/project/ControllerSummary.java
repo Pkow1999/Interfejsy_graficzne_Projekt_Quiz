@@ -15,108 +15,47 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ControllerSummary {
     @FXML
-    public Label question1;
-    public Label question2;
-    public Label question3;
-    public Label question4;
-    public Label question5;
-    public Label question6;
-    public Label question7;
-    public Label question8;
-    public Label question9;
-    public Label question10;
-    public Label percentageLabel;
-    public Label punctationLabel;
-    public Label timeLabel;
+    private Label question1,question2,question3,question4,question5,question6,question7,question8,question9,question10;
+    @FXML
+    private Label percentageLabel;
+    @FXML
+    private Label punctationLabel;
+    @FXML
+    private Label timeLabel;
 
     @FXML
     public void initialize() {
-        if (ControllerPlayTest.AnswerQuestion[0]) {
-            question1.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question1.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[1]) {
-            question2.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question2.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[2]) {
-            question3.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question3.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[3]) {
-            question4.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question4.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[4]) {
-            question5.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question5.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[5]) {
-            question6.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question6.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[6]) {
-            question7.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question7.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[7]) {
-            question8.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question8.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
-
-        if (ControllerPlayTest.AnswerQuestion[8]) {
-            question9.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        } else {
-            question9.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-        if(ControllerPlayTest.AnswerQuestion[9])
-        {
-            question10.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY , Insets.EMPTY)));
-        }
-        else {
-            question10.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY , Insets.EMPTY)));
-        }
         int counter = 0;
-        for(int i = 0;i<10;i++)
-            if(ControllerPlayTest.AnswerQuestion[i])
+        ArrayList<Label> questionListLabel = new ArrayList<>(Arrays.asList(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10));
+        //ustawienie dobrych odpowiedzi na kolor zielony oraz zwiekszenie licznika, a zlych na czerwony
+        for(int i= 0;i<questionListLabel.size();i++)
+        {
+            if(Questions.getAnswer(i))
+            {
+                questionListLabel.get(i).setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
                 counter++;
-            percentageLabel.setText(counter * 10 +"%");
-            timeLabel.setText(String.valueOf(Questions.timeAll)+" sek.");
-            punctationLabel.setText(String.valueOf(Questions.punctation)+" pkt.");
+            }
+            else
+            {
+                questionListLabel.get(i).setBackground((new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY))));
+            }
+        }
+
+        percentageLabel.setText(counter * 10 +"%");
+        timeLabel.setText(Questions.getTime()+" sek.");
+        punctationLabel.setText(Questions.getPunctation()+" pkt.");
     }
 
     public void ButtonExitClick(ActionEvent event) throws IOException {
         Parent home_page_parent;
-        if (!ControllerMain.getLogOn())
-            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
-        else home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
 
         //TODO
         Scene home_page_scene = new Scene(home_page_parent);

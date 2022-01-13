@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -41,7 +40,7 @@ public class ControllerMain {
         if(getLogOn())
         {
             LoginText.setText("Wyloguj:");
-            ImageView.setImage(new Image(getClass().getResourceAsStream("logout.png")));
+            ImageView.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logout.png"))));
             ImageView.setFitHeight(50);
             ImageView.setFitWidth(50);
         }
@@ -63,7 +62,6 @@ public class ControllerMain {
             stage.setScene(home_page_scene);
             stage.setResizable(false);
             stage.setTitle("Zaloguj się!");
-            stage.show();
         }
         else {
             logOn = false;
@@ -72,8 +70,8 @@ public class ControllerMain {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);
             stage.setTitle("Quizowanie!");
-            stage.show();
         }
+        stage.show();
     }
     @FXML
     protected void onLoginClickedClick(ActionEvent event) throws IOException {
@@ -107,12 +105,6 @@ public class ControllerMain {
 
     @FXML
     protected void onPlayButtonClick(ActionEvent event) throws IOException {
-//        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
-//        home_page_scene =  new Scene(home_page_parent);
-//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        stage.setScene(home_page_scene);
-//        stage.setTitle("Rozwiązywanie Quizu!");
-//        stage.show();
         home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("selectGameMode.fxml")));
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -128,7 +120,6 @@ public class ControllerMain {
             Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
             stage.setScene(home_page_scene);
             stage.setResizable(false);
-            stage.show();
         }
         else {
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("addQuestion-view.fxml")));
@@ -136,8 +127,8 @@ public class ControllerMain {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);
             stage.setTitle("Dodaj pytanie!");
-            stage.show();
         }
+        stage.show();
     }
     @FXML
     protected void onCheckHistoryClick() throws IOException {
@@ -157,7 +148,6 @@ public class ControllerMain {
     @FXML
     protected void onExitClick()
     {
-        welcomeText.setText("Uciekasz przed obowiazkami!");
         Platform.exit();
     }
 

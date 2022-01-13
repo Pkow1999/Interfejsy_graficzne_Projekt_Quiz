@@ -8,12 +8,11 @@ import java.util.Arrays;
  */
 
 
-//Trzeba te wszystkie metody poukladac i powsadzac w odrebne metody, pozamieniac zmienne na prywatne itp
-//Najlepiej jak najszybciej
 public class Questions {
-    static public int questionIndex = 0;
-    static public int timeAll = 0;
-    static public int punctation = 0;
+    static private int questionIndex = 0;
+    static private int timeAll = 0;
+    static private int punctation = 0;
+    static private boolean[] AnswerQuestion = {false, false, false, false, false, false, false, false, false, false};
     static public ArrayList<String[]> polskiPytania = new ArrayList<>(
         Arrays.asList(
                 new String[]{"Stopień wyższy od wyrazu dobry to", "lepszy", "najlepszy", "dobre", "zły"},
@@ -92,30 +91,15 @@ public class Questions {
                     new String[]{"Rok odzyskania niepodległości przez Polskę to", "1918", "1920", "1916", "1914"}
             ));
 
-    public static void main(String[] args) {
-        for (String[] strArr : polskiPytania) {
-            for (String str : strArr) {
-                System.out.print(str + " ");
-            }
-            System.out.println();
-        }
-        for (String[] strArr : angielskiPytania) {
-            for (String str : strArr) {
-                System.out.print(str + " ");
-            }
-            System.out.println();
-        }
-        for (String[] strArr : matematykaPytania) {
-            for (String str : strArr) {
-                System.out.print(str + " ");
-            }
-            System.out.println();
-        }
-        for (String[] strArr : historiaPytania) {
-            for (String str : strArr) {
-                System.out.print(str + " ");
-            }
-            System.out.println();
-        }
-    }
+    public static int getIndex(){return questionIndex;}
+    public static void resetIndex(){questionIndex = 0;}
+    public static void incrementIndex(){questionIndex++;}
+    public static void addTime(int time){timeAll+=time;}
+    public static void resetTime(){timeAll = 0;}
+    public static int getTime(){return timeAll;}
+    public static int getPunctation(){return punctation;}
+    public static void increasePunctation(int time){punctation += 54*time;}
+    public static void resetPunctation(){punctation = 0;}
+    public static void changeAnswer(int index){AnswerQuestion[index] = true;}
+    public static boolean getAnswer(int index){return AnswerQuestion[index];}
 }

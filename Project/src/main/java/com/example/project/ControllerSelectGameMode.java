@@ -10,13 +10,12 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class controllerSelectGameMode {
+public class ControllerSelectGameMode {
 
     private Parent home_page_parent;
     private Scene home_page_scene;
@@ -96,7 +95,7 @@ public class controllerSelectGameMode {
 
     public void onPlayButtonClick(ActionEvent event) throws IOException {
         boolean wait = false;
-        for (Boolean error : errors) {
+        for (boolean error : errors) {
             if (error) {
                 wait = true;
                 break;
@@ -108,26 +107,24 @@ public class controllerSelectGameMode {
             Scene home_page_scene = new Scene(fxmlLoader.load());//jak robi sie nowa scene to tworzy sie nowe okno - mozna to uzyc przy historii
             stage.setScene(home_page_scene);
             stage.setResizable(false);
-            stage.show();
         }
         else {
-            Questions.questionIndex = 0;
-            Questions.timeAll = 0;
-            Questions.punctation = 0;
+            Questions.resetIndex();
+            Questions.resetTime();
+            Questions.resetPunctation();
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);
             stage.setTitle("Rozwiązywanie Quizu!");
-            stage.show();
         }
+        stage.show();
     }
 
     public void onReturnButtonClick(ActionEvent event) throws IOException {
         //to jest czek ktory sprawdza czy ładuje view zalogowanego czy nie
-        if (!ControllerMain.getLogOn())
-            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
-        else home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
 
         //TODO
         home_page_scene =  new Scene(home_page_parent);

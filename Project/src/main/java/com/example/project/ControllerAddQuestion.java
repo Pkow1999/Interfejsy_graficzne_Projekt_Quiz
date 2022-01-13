@@ -23,21 +23,19 @@ public class ControllerAddQuestion {
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
-    static private Boolean[] errors = {true, true, true};//tablica posiadajaca errory mozliwe w dodawaniu pytania
-    //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
-    private Parent home_page_parent;
-    private Scene home_page_scene;
+    static private boolean[] errors = {true, true, true};//tablica posiadajaca errory mozliwe w dodawaniu pytania
     private Stage stage;
 
     @FXML
     protected void onReturnButtonClick(ActionEvent event) throws IOException {
         //to jest czek ktory sprawdza czy ładuje view zalogowanego czy nie
-        if (!ControllerMain.getLogOn())
-            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
-       else home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
+        Parent home_page_parent;
+        //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+        home_page_parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
 
         //TODO
-        home_page_scene =  new Scene(home_page_parent);
+        Scene home_page_scene = new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
         if(!ControllerMain.getLogOn())
@@ -66,18 +64,15 @@ public class ControllerAddQuestion {
         stage.setScene(home_page_scene);
         stage.setResizable(false);
         stage.show();
-        System.out.println(String.valueOf(errors[0]));
-        System.out.println(String.valueOf(errors[1]));
-        System.out.println(String.valueOf(errors[2]));
     }
     public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
     {
         if(errors[0])
-            return "Proszę, wybrać kategorię";
+            return "Pole z kategorią jest puste. Proszę, wybrać kategorię";
         else if(errors[1])
-            return "Proszę, uzupełnić odpowiedzi";
+            return "Pole z pytaniem jest puste. Proszę wprowadzić pytanie";
         else if(errors[2])
-            return "Proszę, uzupełnić pytanie";
+            return "Jedno lub kilka pól z odpowiedziami jest puste. Proszę, uzupełnić odpowiedzi";
         else return "Pytanie zostało wysłane do zatwierdzenia";
     }
 
@@ -86,12 +81,12 @@ public class ControllerAddQuestion {
         //bez tej funkcji moga pojawic sie opoznienia i bedzie trzeba naprzyklad kliknac w nowy textfield albo w okno aby dane zostaly zaakceptowane
         if(Good.getText().equals("") || Bad1.getText().equals("") || Bad2.getText().equals("") || Bad3.getText().equals(""))//sprawdzamy czy wszystkie odpowiedzi maja cos w sobie
         {
-            errors[1] = true;
+            errors[2] = true;
         }
-        else errors[1] = false;
+        else errors[2] = false;
         if(textArea.getText().equals(""))//sprawdzamy czy w pytaniu nie ma pustego stringa
         {
-            errors[2] = true;
-        } else errors[2] = false;
+            errors[1] = true;
+        } else errors[1] = false;
     }
 }

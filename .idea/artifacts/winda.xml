@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="winda">
+    <output-path>$PROJECT_DIR$/out/artifacts/winda</output-path>
+    <root id="root">
+      <element id="archive" name="Project.jar">
+        <element id="module-output" name="Project" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.0.1" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:17.0.0.1" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:17.0.0.1" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:17.0.0.1" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:17.0.0.1" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:17.0.0.1" />
+      </element>
+    </root>
+  </artifact>
+</component>
