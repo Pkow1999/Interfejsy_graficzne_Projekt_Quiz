@@ -15,9 +15,9 @@
    <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="780.0" spacing="20.0">
       <children>
          <Text fx:id="LoginText" strokeType="OUTSIDE" strokeWidth="0.0" text="Zaloguj: " textAlignment="RIGHT" wrappingWidth="111.251953125" />
-         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
+         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginClick" onMouseEntered="#onLoginButtonEntered" onMouseExited="#onLoginButtonExited" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
             <graphic>
-               <ImageView fx:id="ImageView" fitHeight="60.0" fitWidth="60.0">
+               <ImageView fx:id="ImageView" fitHeight="60.0" fitWidth="60.0" style="-fx-opacity: 0.3;">
                   <image>
                      <Image url="@user-interface.png" />
                   </image>

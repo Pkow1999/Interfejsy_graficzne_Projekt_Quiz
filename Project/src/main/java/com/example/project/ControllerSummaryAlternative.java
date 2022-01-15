@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -94,5 +95,19 @@ public class ControllerSummaryAlternative {
         {
             return Questions.matematykaPytania.get(index)[0];
         }
+    }
+
+    public void onMouseButtonEntered(MouseEvent mouseEvent) {
+        Button source = (Button) mouseEvent.getSource();
+        if(source.getStyle().equals("-fx-background-color: red;"))
+            source.setStyle("-fx-background-color: LightCoral;");
+        else source.setStyle("-fx-background-color: lightgreen;");
+    }
+
+    public void onMouseButtonExited(MouseEvent mouseEvent) {
+        Button source = (Button) mouseEvent.getSource();
+        if(source.getStyle().equals("-fx-background-color: LightCoral;"))
+            source.setStyle("-fx-background-color: red;");
+        else source.setStyle("-fx-background-color: green;");
     }
 }
