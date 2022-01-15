@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -154,5 +155,13 @@ public class ControllerMain {
     public void onExitPopUpButtonClick(ActionEvent event) {
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    public void onLoginButtonEntered(MouseEvent mouseEvent) {
+        ImageView.setStyle("-fx-opacity:1;");
+    }
+
+    public void onLoginButtonExited(MouseEvent mouseEvent) {
+        ImageView.setStyle("-fx-opacity:0.3;");
     }
 }

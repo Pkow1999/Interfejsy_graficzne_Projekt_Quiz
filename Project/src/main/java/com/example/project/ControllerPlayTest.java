@@ -10,6 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -30,6 +35,8 @@ public class ControllerPlayTest  {
     @FXML
     public Button Button3;
     @FXML
+    public ImageView exitImage;
+    @FXML
     private Label QuestionText;
     @FXML
     private Button exitButton;
@@ -40,14 +47,16 @@ public class ControllerPlayTest  {
     private Stage stage;
 
     private ArrayList<String[]> zasobnik;
+    private ArrayList<Button> przyciski = new ArrayList<>();
+
     @FXML
     private Label timerLabel;
     private static final Integer STARTTIME=20;
     private static Integer time;
     private Timeline timeline;
-
     public ControllerPlayTest()
     {
+
         exitButton = new Button();
         timerLabel = new Label();
         timeline = new Timeline();
@@ -56,6 +65,10 @@ public class ControllerPlayTest  {
     @FXML
     public void initialize()
     {
+        przyciski.add(Button1);
+        przyciski.add(Button2);
+        przyciski.add(Button3);
+        przyciski.add(Button4);
         QuestionLabel.setText("Pytanie nr " + (Questions.getIndex() + 1) +"/10");
         if(ControllerSelectGameMode.kategoria == 1)
         {
@@ -73,6 +86,7 @@ public class ControllerPlayTest  {
         {
             zasobnik = Questions.matematykaPytania;
         }
+
         QuestionText.setText(zasobnik.get(Questions.getIndex())[0]);
         ArrayList<String> losu = new ArrayList<>();
         losu.add(zasobnik.get(Questions.getIndex())[1]);
@@ -80,10 +94,15 @@ public class ControllerPlayTest  {
         losu.add(zasobnik.get(Questions.getIndex())[3]);
         losu.add(zasobnik.get(Questions.getIndex())[4]);
         Collections.shuffle(losu);
-        Button1.setText(losu.get(0));
-        Button2.setText(losu.get(1));
-        Button3.setText(losu.get(2));
-        Button4.setText(losu.get(3));
+        for(int i = 0;i<4;i++)
+        {
+            if(losu.get(i).length() > 18)
+                przyciski.get(i).setStyle(przyciski.get(i).getStyle()+"-fx-font-size:20;");
+            else if(losu.get(i).length() > 25)
+                przyciski.get(i).setStyle(przyciski.get(i).getStyle()+"-fx-font-size:15;");
+            else przyciski.get(i).setStyle(przyciski.get(i).getStyle()+"-fx-font-size:30;");
+            przyciski.get(i).setText(losu.get(i));
+        }
 
 
         time = STARTTIME;
@@ -102,7 +121,7 @@ public class ControllerPlayTest  {
         timeline.playFromStart();
     }
     @FXML
-    protected void onHello1ButtonClick(ActionEvent event) throws IOException {
+    protected void onAnswerButtonClick(ActionEvent event) throws IOException {
         timeline.stop();
         int timeCurrent = 20-time;
         Questions.addTime(timeCurrent);
@@ -114,7 +133,7 @@ public class ControllerPlayTest  {
         Questions.incrementIndex();
         if(Questions.getIndex() > 9)
         {
-            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("summary.fxml")));
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("summaryAlternative.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);
@@ -149,6 +168,25 @@ public class ControllerPlayTest  {
         else stage.setTitle("Quizowanie - Zalogowany!");
         stage.setResizable(false);
         stage.show();
+
+    }
+
+    public void onMouseExitedButton(MouseEvent mouseEvent) {
+        Button source = (Button) mouseEvent.getSource();
+        source.setStyle(source.getStyle() + "-fx-border-width:1;");
+    }
+
+    public void onMouseOverButton(MouseEvent mouseEvent) {
+        Button source = (Button) mouseEvent.getSource();
+        source.setStyle(source.getStyle() + "-fx-border-width:2;");
+    }
+
+    public void onExitButtonEntered(MouseEvent mouseEvent) {
+        exitImage.setStyle("-fx-opacity:1;");
+    }
+
+    public void onExitButtonExited(MouseEvent mouseEvent) {
+        exitImage.setStyle("-fx-opacity:0.3;");
 
     }
 }

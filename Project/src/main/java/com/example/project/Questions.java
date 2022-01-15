@@ -15,7 +15,7 @@ public class Questions {
     static private boolean[] AnswerQuestion = {false, false, false, false, false, false, false, false, false, false};
     static public ArrayList<String[]> polskiPytania = new ArrayList<>(
         Arrays.asList(
-                new String[]{"Stopień wyższy od wyrazu dobry to", "lepszy", "najlepszy", "dobre", "zły"},
+                new String[]{"Stopień wyższy od wyrazu dobry to", "lepszyaaaaaaaaaaaa", "najlepszy", "dobre", "zły"},
                 new String[]{"Z ilu sylab składa się wyraz mammografia?", "4", "11", "7", "6"},
                 new String[]{"Jak nazywa się część zdania określająca rzeczownik?", "przydawka", "orzeczenie",
                         "okolicznik", "podmiot"},

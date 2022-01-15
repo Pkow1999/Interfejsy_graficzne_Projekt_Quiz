@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +25,9 @@ public class ControllerAddQuestion {
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
+    @FXML
+    private ImageView exitImage;
+
     static private boolean[] errors = {true, true, true};//tablica posiadajaca errory mozliwe w dodawaniu pytania
     private Stage stage;
 
@@ -88,5 +93,13 @@ public class ControllerAddQuestion {
         {
             errors[1] = true;
         } else errors[1] = false;
+    }
+
+    public void onExitButtonEntered(MouseEvent mouseEvent) {
+        exitImage.setStyle("-fx-opacity:1;");
+    }
+
+    public void onExitButtonExited(MouseEvent mouseEvent) {
+        exitImage.setStyle("-fx-opacity:0.3;");
     }
 }

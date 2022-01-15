@@ -10,6 +10,8 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,6 +38,9 @@ public class ControllerSelectGameMode {
     private MenuButton category;
     @FXML
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
+    @FXML
+    private ImageView returnImage;
+
     static private Boolean[] errors;//tablica posiadajaca errory mozliwe w dodawaniu pytania
     //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
     @FXML
@@ -145,5 +150,13 @@ public class ControllerSelectGameMode {
         else if(errors[2])
             return "Proszę, wybrać kategorię";
         else return "Pytanie zostało wysłane do zatwierdzenia";
+    }
+
+    public void onReturnButtonExited(MouseEvent mouseEvent) {
+        returnImage.setStyle("-fx-opacity:0.3;");
+    }
+
+    public void onReturnButtonEntered(MouseEvent mouseEvent) {
+        returnImage.setStyle("-fx-opacity:1;");
     }
 }

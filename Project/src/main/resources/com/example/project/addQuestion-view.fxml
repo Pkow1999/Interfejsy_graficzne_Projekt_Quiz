@@ -32,9 +32,9 @@
       <TextField fx:id="Bad1" alignment="CENTER" layoutX="272.0" layoutY="320.0" onKeyReleased="#onReturnTextClick" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff5349; -fx-border-color: #000000;" />
       <TextField fx:id="Bad2" alignment="CENTER" layoutX="272.0" layoutY="390.0" onKeyReleased="#onReturnTextClick" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff5349; -fx-border-color: #000000;" />
       <TextField fx:id="Bad3" alignment="CENTER" layoutX="272.0" layoutY="460.0" onKeyReleased="#onReturnTextClick" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff5349; -fx-border-color: #000000;" />
-      <Button layoutX="737.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+      <Button layoutX="737.0" mnemonicParsing="false" onAction="#onReturnButtonClick" onMouseEntered="#onExitButtonEntered" onMouseExited="#onExitButtonExited" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
          <graphic>
-            <ImageView fitHeight="53.0" fitWidth="47.0">
+            <ImageView fx:id="exitImage" fitHeight="53.0" fitWidth="47.0" preserveRatio="true" style="-fx-opacity:0.3">
                <image>
                   <Image url="@return.png" />
                </image>

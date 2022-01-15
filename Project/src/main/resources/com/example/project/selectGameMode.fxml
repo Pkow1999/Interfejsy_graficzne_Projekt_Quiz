@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerSelectGameMode">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerSelectGameMode">
    <children>
       <Label alignment="CENTER" layoutX="262.0" layoutY="14.0" prefHeight="50.0" prefWidth="250.0" text="Wybierz tryb gry">
          <font>
@@ -66,9 +66,9 @@
             <Font size="20.0" />
          </font>
       </MenuButton>
-      <Button layoutX="737.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
+      <Button layoutX="737.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onReturnButtonClick" onMouseEntered="#onReturnButtonEntered" onMouseExited="#onReturnButtonExited" prefHeight="61.0" prefWidth="65.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;">
          <graphic>
-            <ImageView fitHeight="45.0" fitWidth="47.0">
+            <ImageView fx:id="returnImage" fitHeight="53.0" fitWidth="47.0" preserveRatio="true" style="-fx-opacity:0.3;">
                <image>
                   <Image url="@return.png" />
                </image>
