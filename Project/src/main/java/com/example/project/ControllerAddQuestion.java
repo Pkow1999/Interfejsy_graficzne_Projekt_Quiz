@@ -73,11 +73,11 @@ public class ControllerAddQuestion {
     public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
     {
         if(errors[0])
-            return "Pole z kategorią jest puste. Proszę, wybrać kategorię";
+            return "Pole z kategorią jest puste. Proszę wybrać kategorię";
         else if(errors[1])
             return "Pole z pytaniem jest puste. Proszę wprowadzić pytanie";
         else if(errors[2])
-            return "Jedno lub kilka pól z odpowiedziami jest puste. Proszę, uzupełnić odpowiedzi";
+            return "Jedno lub kilka pól z odpowiedziami jest puste. Proszę uzupełnić odpowiedzi";
         else return "Pytanie zostało wysłane do zatwierdzenia";
     }
 

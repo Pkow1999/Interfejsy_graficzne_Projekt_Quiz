@@ -65,7 +65,7 @@ public class Questions {
                     new String[]{"Ile stopni ma kąt prosty?", "90 stopni", "180 stopni", "360 stopni", "100 stopni"},
                     new String[]{"X+Y=Y+X", "prawda", "fałsz", "półprawda", "półfałsz"},
                     new String[]{"6 * 6 =", "36", "96", "60", "12"},
-                    new String[]{"Trójkąt prostokątny ma boki: przyprostokątne 'a' i 'b', przeciwprostokątną 'c'. " +
+                    new String[]{"Trójkąt prostokątny ma boki: przyprostokątne 'a' i 'b', przeciwprostokątną 'c'." +
                             "Zaznacz prawdę", "a*a + b*b = c*c", "a*a + c*c = b*b", "b*b + c*c = a*a", "a + b = c"},
                     new String[]{"2 + 2 * 2", "6", "8", "22", "222"},
                     new String[]{"MCMXCIX to rok", "1999", "1989", "1111", "1000"}

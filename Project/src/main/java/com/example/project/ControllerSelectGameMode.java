@@ -148,7 +148,7 @@ public class ControllerSelectGameMode {
         else if(errors[1])
             return "Proszę wybrać poziom trudności";
         else if(errors[2])
-            return "Proszę, wybrać kategorię";
+            return "Proszę wybrać kategorię";
         else return "Pytanie zostało wysłane do zatwierdzenia";
     }
 

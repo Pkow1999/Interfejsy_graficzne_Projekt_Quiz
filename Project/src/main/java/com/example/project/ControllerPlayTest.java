@@ -86,7 +86,10 @@ public class ControllerPlayTest  {
         {
             zasobnik = Questions.matematykaPytania;
         }
-
+        if(zasobnik.get(Questions.getIndex())[0].length() > 80)
+            QuestionText.setStyle(QuestionText.getStyle() + "-fx-font-size:30;");
+        else
+            QuestionText.setStyle(QuestionText.getStyle() + "-fx-font-size:40;");
         QuestionText.setText(zasobnik.get(Questions.getIndex())[0]);
         ArrayList<String> losu = new ArrayList<>();
         losu.add(zasobnik.get(Questions.getIndex())[1]);
