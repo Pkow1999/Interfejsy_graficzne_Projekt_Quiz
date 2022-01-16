@@ -16,20 +16,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
-
+/**Klasa obsługująca okno wybierania kategorii, trybu, jak i poziomu trudności*/
 public class ControllerSelectGameMode {
 
     private Parent home_page_parent;
     private Scene home_page_scene;
     private Stage stage;
 
-
+    /**Zmienna przechowywująca aktualnie wybraną kategorię*/
     public static int kategoria = 0;
 
     @FXML
     public boolean gameMode;
-    @FXML
-    public int intLevelOfDifficulty;
+    public static int intLevelOfDifficulty;
     @FXML
     private ToggleGroup mode;
     @FXML
@@ -40,18 +39,18 @@ public class ControllerSelectGameMode {
     private MenuItem POLISH,HISTORY,ENGLISH,MATH;
     @FXML
     private ImageView returnImage;
-
+    /**Tablica przechowywująca błędy w wybieraniu gry*/
     static private Boolean[] errors;//tablica posiadajaca errory mozliwe w dodawaniu pytania
-    //jeden jest od razu na true bo jest to kategoria i zmieni sie jak ustawimy dowolna kategorie z mozliwych
     @FXML
     private RadioButton test, nauka, szkolaPodstawowa, szkolaSrednia, powtorkaDoMatury;
 
-
+    /**Metoda inicjalizująca*/
     @FXML
     public void initialize()
     {
         errors = new Boolean[]{true, true, true};
     }
+    /**Metoda obsługująca wyboru trybu gry*/
     public void onModeRadioClick(ActionEvent event) {
         if(test.isSelected()) {
             gameMode = true;
@@ -62,7 +61,7 @@ public class ControllerSelectGameMode {
         }
         errors[0] = false;
     }
-
+    /**Metoda obsługująca wyboru poziomu trudności*/
     public void onLevelOfDifficultyRadioClick(ActionEvent event) {
         if(szkolaPodstawowa.isSelected()) {
             intLevelOfDifficulty = 0;
@@ -75,7 +74,7 @@ public class ControllerSelectGameMode {
         }
         errors[1] = false;
     }
-
+    /**Metoda obsługująca zmianę kategorii gry*/
     @FXML
     protected void ChangeCategory(ActionEvent event) {
         //powinno dac rade to zrobic bardziej elegancko, ale nie mam teraz pojecia jak
@@ -97,7 +96,7 @@ public class ControllerSelectGameMode {
         }
         errors[2] = false;
     }
-
+    /**Metoda obsługująca chęci wypełnienia quizu*/
     public void onPlayButtonClick(ActionEvent event) throws IOException {
         boolean wait = false;
         for (boolean error : errors) {
@@ -117,6 +116,8 @@ public class ControllerSelectGameMode {
             Questions.resetIndex();
             Questions.resetTime();
             Questions.resetPunctation();
+            Questions.resetAnswers();
+            Questions.odpowiedzi.clear();
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -125,7 +126,7 @@ public class ControllerSelectGameMode {
         }
         stage.show();
     }
-
+    /**Metoda obsługująca powrót do okna głównego*/
     public void onReturnButtonClick(ActionEvent event) throws IOException {
         //to jest czek ktory sprawdza czy ładuje view zalogowanego czy nie
         //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
@@ -140,22 +141,22 @@ public class ControllerSelectGameMode {
         else stage.setTitle("Quizowanie - Zalogowany!");
         stage.show();
     }
-
+    /**Metoda obsługująca komunikat błędu*/
     public static String errorChecking()//funkcja zwracajaca string z wiadomoscia do popupa o mozliwym bledzie
     {
         if(errors[0])
-            return "Proszę wybrać tryb gry";
+            return "Pole z trybem gry jest puste. Proszę wybrać tryb gry";
         else if(errors[1])
-            return "Proszę wybrać poziom trudności";
+            return "Pole z poziomem trudności jest puste. Proszę wybrać poziom trudności";
         else if(errors[2])
-            return "Proszę wybrać kategorię";
-        else return "Pytanie zostało wysłane do zatwierdzenia";
+            return "Pole z kategorią jest puste. Proszę wybrać kategorię";
+        else return "Niech gra się zacznie";
     }
-
+    /**Metoda obslugująca odjechanie myszki z przycisku powrotu*/
     public void onReturnButtonExited(MouseEvent mouseEvent) {
         returnImage.setStyle("-fx-opacity:0.3;");
     }
-
+    /**Metoda obsługująca najechanie myszki na przycisk powrotu*/
     public void onReturnButtonEntered(MouseEvent mouseEvent) {
         returnImage.setStyle("-fx-opacity:1;");
     }

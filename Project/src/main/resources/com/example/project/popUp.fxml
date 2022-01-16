@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerSummaryPopUp">
     <children>
+      <Label fx:id="QuestionText" alignment="TOP_CENTER" layoutX="40.0" layoutY="40.0" prefHeight="90.0" prefWidth="420.0" style="-fx-font-weight: bold;" text="Text" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
         <Button layoutX="210.0" layoutY="227.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="30.0" prefWidth="80.0" text="Wyjdź" />
-        <Text fx:id="QuestionText" disable="true" layoutX="60.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="381.0">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
+      <Label fx:id="Anwser1" alignment="CENTER" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="125.0" text="Answer1" wrapText="true" />
+      <Label fx:id="Anwser2" alignment="CENTER" layoutX="125.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="125.0" text="Answer2" wrapText="true" />
+      <Label fx:id="Anwser3" alignment="CENTER" layoutX="250.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="125.0" text="Answer3" wrapText="true" />
+      <Label fx:id="Anwser4" alignment="CENTER" layoutX="375.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="125.0" text="Answer4" wrapText="true" />
     </children>
 </Pane>

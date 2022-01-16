@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**Klasa obsługująca ekran podsumowania*/
 public class ControllerSummary {
     @FXML
     private Label question1,question2,question3,question4,question5,question6,question7,question8,question9,question10;
@@ -28,7 +29,7 @@ public class ControllerSummary {
     private Label punctationLabel;
     @FXML
     private Label timeLabel;
-
+    /**Metoda inicjalizująca*/
     @FXML
     public void initialize() {
         int counter = 0;
@@ -51,7 +52,7 @@ public class ControllerSummary {
         timeLabel.setText(Questions.getTime()+" sek.");
         punctationLabel.setText(Questions.getPunctation()+" pkt.");
     }
-
+    /**Metoda obsługująca wyjście z okienka i powrotu do ekranu głównego*/
     public void ButtonExitClick(ActionEvent event) throws IOException {
         Parent home_page_parent;
         //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
