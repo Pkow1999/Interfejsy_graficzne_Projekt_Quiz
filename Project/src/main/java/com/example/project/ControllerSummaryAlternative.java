@@ -32,11 +32,13 @@ public class ControllerSummaryAlternative {
     @FXML
     private Label timeLabel;
 
+    static public int numbers = 0;
     /**Zmienna przechowywująca indeks pytania*/
     public static int index;
     /**Metoda inicjalizująca*/
     @FXML
     public void initialize() {
+        numbers++;
         int counter = 0;
         ArrayList<Button> questionListLabel = new ArrayList<>(Arrays.asList(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10));
         //ustawienie dobrych odpowiedzi na kolor zielony oraz zwiekszenie licznika, a zlych na czerwony
@@ -70,7 +72,7 @@ public class ControllerSummaryAlternative {
     }
     /**Metoda obsługująca wejście w szczegóły dotyczące danego pytania*/
     public void ButtonQuestionClick(ActionEvent event) throws IOException{
-        index = Integer.valueOf(((Button)event.getSource()).getText()) - 1;
+        index = Integer.parseInt(((Button)event.getSource()).getText()) - 1;
 
         Stage stage = new Stage();//robimy nowe okienko z ekranem logowania
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("popUp.fxml"));

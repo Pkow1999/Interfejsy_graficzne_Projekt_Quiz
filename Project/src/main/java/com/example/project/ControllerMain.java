@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.application.Platform;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -21,11 +23,21 @@ import java.util.Objects;
 public class ControllerMain {
     /**Zmienna która przechowywuje stan zalogowywania aplikacji*/
     private static boolean logOn = false;//zmienna ktora przechowywuje czy jestes zalogowany
-    /**Zmienna która przechowywuje Imageview obrazka logowania/wylogowywania*/
     @FXML
-    public ImageView ImageView;
+    private VBox background;
+
     /**Zmienna zwracająca stan zalogowywania*/
     public static boolean getLogOn(){return logOn;}
+
+    public static String loginName;
+
+    /**Zmienna która przechowywuje Imageview obrazka logowania/wylogowywania*/
+    @FXML
+    private ImageView LoginImage,SettingImage;
+    @FXML
+    private TextField login;
+    @FXML
+    public Label loginLabel;
     /**Napis zawierający informację co przycisk w prawym górnym rogu robi*/
     @FXML
     private Text LoginText;
@@ -48,9 +60,9 @@ public class ControllerMain {
         if(getLogOn())
         {
             LoginText.setText("Wyloguj:");
-            ImageView.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logout.png"))));
-            ImageView.setFitHeight(50);
-            ImageView.setFitWidth(50);
+            LoginImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logout.png"))));
+            LoginImage.setFitHeight(50);
+            LoginImage.setFitWidth(50);
         }
         else
         {
@@ -74,6 +86,7 @@ public class ControllerMain {
         }
         else {
             logOn = false;
+            loginName = null;
             home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -85,17 +98,25 @@ public class ControllerMain {
     /**Metoda obsługująca okienko zalogowania*/
     @FXML
     protected void onLoginClickedClick(ActionEvent event) throws IOException {
-        logOn = true;
-        //zamykamy okienko z logowaniem
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.close();
-        //otwieramy okienko main po zalogowaniu
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
-        home_page_scene =  new Scene(home_page_parent);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(home_page_scene);
-        stage.setTitle("Quizowanie - Zalogowany!");
-        stage.show();
+        if (!login.getText().equals(""))
+        {
+            logOn = true;
+            loginName = login.getText();
+            //zamykamy okienko z logowaniem
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.close();
+            //otwieramy okienko main po zalogowaniu
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
+            home_page_scene =  new Scene(home_page_parent);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(home_page_scene);
+            stage.setTitle("Quizowanie - Zalogowany!");
+            stage.show();
+        }
+        else {
+            loginLabel.setStyle(loginLabel.getStyle() + "-fx-text-fill:red;");
+            loginLabel.setText("Pole z loginem nie może być puste");
+        }
     }
 
     /**Metoda obsługująca wyjście z okienka zalogowania*/
@@ -119,7 +140,7 @@ public class ControllerMain {
         home_page_scene =  new Scene(home_page_parent);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
-        stage.setTitle("Tryby gry");
+        stage.setTitle("Quizowanie! - Tryby gry");
         stage.show();
     }
     /**Metoda obsługujaca chęć dodania pytania*/
@@ -137,7 +158,7 @@ public class ControllerMain {
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);
-            stage.setTitle("Dodaj pytanie!");
+            stage.setTitle("Quizowanie! - Dodaj pytanie!");
         }
         stage.show();
     }
@@ -170,10 +191,26 @@ public class ControllerMain {
     }
     /**Metoda obsługująca najechanie myszką na przycisk zalogowywania/wylogowywania się*/
     public void onLoginButtonEntered(MouseEvent mouseEvent) {
-        ImageView.setStyle("-fx-opacity:1;");
+        LoginImage.setStyle("-fx-opacity:1;");
     }
     /**Metoda obsługująca odjechanie myszką z przycisku zalogowywania/wylogowywania się*/
     public void onLoginButtonExited(MouseEvent mouseEvent) {
-        ImageView.setStyle("-fx-opacity:0.3;");
+        LoginImage.setStyle("-fx-opacity:0.3;");
     }
+
+    /**Metoda obsługująca chęc wejścia do ustawień */
+    public void onSettingsClick(ActionEvent event) throws IOException {
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("setting-view.fxml")));
+        home_page_scene =  new Scene(home_page_parent);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(home_page_scene);
+        stage.setTitle("Quizowanie! - Opcje");
+        stage.show();
+    }
+
+    /**Metoda obsługująca najechanie myszką na przycisk zalogowywania/wylogowywania się*/
+    public void onSettingsButtonEntered(MouseEvent mouseEvent) {SettingImage.setStyle("-fx-opacity:1;");}
+
+    /**Metoda obsługująca odjechanie myszką z przycisku zalogowywania/wylogowywania się*/
+    public void onSettingsButtonExited(MouseEvent mouseEvent) {SettingImage.setStyle("-fx-opacity:0.3;");}
 }

@@ -9,20 +9,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" spacing="35.0" style="-fx-background-color: linear-gradient(to top, #ff61df, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerMain">
+<VBox fx:id="background" alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" spacing="35.0" style="-fx-background-color: linear-gradient(to bottom, darkcyan, mediumpurple);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerMain">
    <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="780.0" spacing="20.0">
       <children>
-         <Text fx:id="LoginText" strokeType="OUTSIDE" strokeWidth="0.0" text="Zaloguj: " textAlignment="RIGHT" wrappingWidth="111.251953125" />
+         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSettingsClick" onMouseEntered="#onSettingsButtonEntered" onMouseExited="#onSettingsButtonExited" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
+            <graphic>
+               <ImageView fx:id="SettingImage" fitHeight="50.0" fitWidth="50.0" style="-fx-opacity: 0.3;">
+                  <image>
+                     <Image url="@gear.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
          <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginClick" onMouseEntered="#onLoginButtonEntered" onMouseExited="#onLoginButtonExited" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 3000; -fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
             <graphic>
-               <ImageView fx:id="ImageView" fitHeight="60.0" fitWidth="60.0" style="-fx-opacity: 0.3;">
+               <ImageView fx:id="LoginImage" fitHeight="50.0" fitWidth="50.0" style="-fx-opacity: 0.3;">
                   <image>
                      <Image url="@user-interface.png" />
                   </image>
                </ImageView>
-            </graphic></Button>
+            </graphic>
+         </Button>
       </children>
       <VBox.margin>
          <Insets bottom="-30.0" right="20.0" />
@@ -35,7 +42,7 @@
                <Font name="Arial" size="38.0" />
             </font>
             <graphic>
-               <Rectangle arcHeight="10.0" arcWidth="5.0" fill="#fae7b5" height="200.0" scaleX="2.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 40;" width="230.0" />
+               <Rectangle arcHeight="10.0" arcWidth="5.0" fill="mediumpurple" height="200.0" scaleX="2.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 40;" width="230.0" />
             </graphic>
          </Label>
       </children>
