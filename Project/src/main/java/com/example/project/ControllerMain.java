@@ -164,7 +164,7 @@ public class ControllerMain {
     }
     /**Metoda obsługująca chęć sprawdzenia historii*/
     @FXML
-    protected void onCheckHistoryClick() throws IOException {
+    protected void onCheckHistoryClick(ActionEvent event) throws IOException {
         if(!getLogOn()){
             stage = new Stage();//robimy nowe okienko
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("notLoggedInPopUp.fxml"));
@@ -175,7 +175,12 @@ public class ControllerMain {
         }
         else
         {
-            welcomeText.setText("Otworzyć historie!");
+            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("history-view.fxml")));
+            home_page_scene =  new Scene(home_page_parent);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(home_page_scene);
+            stage.setTitle("Quizowanie! - Tryby gry");
+            stage.show();
         }
     }
     /**Metoda obsługująca chęć wyjścia z aplikacji*/
