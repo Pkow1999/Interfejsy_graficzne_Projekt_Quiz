@@ -44,7 +44,7 @@ public class ControllerPlayNaukaTest  {
     /**Lista przechowywująca przyciski z odpowiedziami*/
     private ArrayList<Button> przyciski = new ArrayList<>();
     /**Zmienna przechowywujaca początkowy czas naszego licznika*/
-    private static final Integer STARTTIME=5;
+    private static final Integer STARTTIME=3;
     /**Zmienna przechowywujaca aktualny czas licznika*/
     private static Integer time;
     /**Zmienna pozwalająca nam na robienie animacji(w tym przypadku zmianę licznika) co dana klatkę kluczowa(w tym przypadku co sekundę) bez wymagania korzystania z wątków*/
@@ -123,7 +123,6 @@ public class ControllerPlayNaukaTest  {
         Button2.setDisable(true);
         Button3.setDisable(true);
         Button4.setDisable(true);
-        Questions.incrementIndex();
         //HEJ wyrażenie lambda! które obsługuje nam zmiane licznika co sekunde!
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
             System.out.println(time);
@@ -134,17 +133,18 @@ public class ControllerPlayNaukaTest  {
                 ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: green;");
             if(time < 1) {
                 timeline.stop();
-
                 if(((Button)actionEvent.getSource()).getText().equals(zasobnik.get(Questions.getIndex())[1]))//sprawdzamy czy odpowiedz jest poprawna
                 {
+                    System.out.println("POPRAWNA ODPOWIEDZ!");
                     Questions.increasePunctation(time);
                     Questions.changeAnswer(Questions.getIndex());
                     ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: green;");
                 }
                 else {
+                    System.out.println("Niepoprawna!");
                     ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: red;");
                 }
-
+                Questions.incrementIndex();
                 time = STARTTIME;
                 timeline = new Timeline();
                 timeline.setCycleCount(Timeline.INDEFINITE);
@@ -155,7 +155,6 @@ public class ControllerPlayNaukaTest  {
                     System.out.println("DRUGI: " + time);
                     if(time < 1) {
                         timeline.stop();
-
                         if(Questions.getIndex() > 9)//sprawdzamy czy to ostatnie pytanie
                         {
                             try {
@@ -165,8 +164,11 @@ public class ControllerPlayNaukaTest  {
                             }
                             home_page_scene =  new Scene(home_page_parent);
                             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                            stage.setScene(home_page_scene);
-                            stage.show();
+                            if(stage != null)
+                            {
+                                stage.setScene(home_page_scene);
+                                stage.show();
+                            }
                         }
                         else//jak nie lecimy dalej
                         {
@@ -177,8 +179,11 @@ public class ControllerPlayNaukaTest  {
                             }
                             home_page_scene =  new Scene(home_page_parent);
                             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                            stage.setScene(home_page_scene);
-                            stage.show();
+                            if(stage != null)
+                            {
+                                stage.setScene(home_page_scene);
+                                stage.show();
+                            }
                         }
                     }
                     if(home_page_parent != null)
