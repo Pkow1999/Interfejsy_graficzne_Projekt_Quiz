@@ -118,7 +118,10 @@ public class ControllerSelectGameMode {
             Questions.resetPunctation();
             Questions.resetAnswers();
             Questions.odpowiedzi.clear();
-            home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
+            if(gameMode)
+                home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
+            else
+                home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("questionNauka-view.fxml")));
             home_page_scene =  new Scene(home_page_parent);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(home_page_scene);
