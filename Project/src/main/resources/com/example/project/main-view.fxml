@@ -42,20 +42,20 @@
                <Font name="Arial" size="38.0" />
             </font>
             <graphic>
-               <Rectangle arcHeight="10.0" arcWidth="5.0" fill="mediumpurple" height="200.0" scaleX="2.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 40;" width="230.0" />
+               <Rectangle fx:id="rectangle" arcHeight="10.0" arcWidth="5.0" fill="mediumpurple" height="200.0" scaleX="2.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 40;" width="230.0" />
             </graphic>
          </Label>
       </children>
    </VBox>
    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
       <children>
-          <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onPlayButtonClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Rozwiąż quiz" />
-          <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onCheckHistoryClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Sprawdź Historię">
+          <Button fx:id="button0" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onPlayButtonClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Rozwiąż quiz" />
+          <Button fx:id="button1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onCheckHistoryClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Sprawdź Historię">
             <VBox.margin>
                <Insets />
             </VBox.margin></Button>
-          <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onAddQuestionButtonClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Dodaj Pytanie" />
-          <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onExitClick" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Wyjdź" />
+          <Button fx:id="button2" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onAddQuestionButtonClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Dodaj Pytanie" />
+          <Button fx:id="button3" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onExitClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="40.0" prefWidth="225.0" style="-fx-background-radius: 5;" text="Wyjdź" />
       </children>
    </VBox>
 

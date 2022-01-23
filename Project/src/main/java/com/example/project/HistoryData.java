@@ -8,13 +8,13 @@ public class HistoryData implements Serializable {//dane sa serializowane PO zak
         String login;
     ArrayList<ArrayList<String>> odp;
     ArrayList<ArrayList<Integer>> daneDoPytan = new ArrayList<>(6);
-    int size = 0;
+    private int counter;
     HistoryData()
     {
         this("",null,null);
     }
     HistoryData(String log,ArrayList<String> odpowiedzi, ArrayList<Integer> dane) {
-        size++;
+        counter = 1;
         this.login = log;
 
         this.odp = new ArrayList<>();
@@ -33,11 +33,12 @@ public class HistoryData implements Serializable {//dane sa serializowane PO zak
             this.odp.remove(0);
             this.daneDoPytan.remove(0);
         }
+        counter++;
     }
 
     public int getSize()
     {
         return daneDoPytan.size();
     }
-
+    public int getCounter(){return counter;}
 }

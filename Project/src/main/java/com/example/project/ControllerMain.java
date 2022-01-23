@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.application.Platform;
 import javafx.scene.control.TextField;
@@ -13,18 +14,27 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**Klasa obsługująca główne okienko aplikacji*/
 public class ControllerMain {
     /**Zmienna która przechowywuje stan zalogowywania aplikacji*/
     private static boolean logOn = false;//zmienna ktora przechowywuje czy jestes zalogowany
+
+
+    @FXML
+    private Rectangle rectangle;
     @FXML
     private VBox background;
+    @FXML
+    private Button button0,button1,button2,button3;
+    private ArrayList<Button> ButtonList = new ArrayList<>();
 
     /**Zmienna zwracająca stan zalogowywania*/
     public static boolean getLogOn(){return logOn;}
@@ -49,6 +59,7 @@ public class ControllerMain {
     private Scene home_page_scene;
     private Stage stage;
     /**Konstruktor*/
+
     public ControllerMain()
     {
         LoginText = new Text();
@@ -57,6 +68,11 @@ public class ControllerMain {
     @FXML
     public void initialize()
     {
+        ButtonList.add(button0);
+        ButtonList.add(button1);
+        ButtonList.add(button2);
+        ButtonList.add(button3);
+
         if(getLogOn())
         {
             LoginText.setText("Wyloguj:");
@@ -69,6 +85,22 @@ public class ControllerMain {
             LoginText.setText("Zaloguj:");
         }
 
+        //0-gradient 1-ciemny 2-jasny
+        if(ControllerSettings.backgroundColour == 1)
+        {
+            background.setStyle("-fx-background-color: darkslategray");
+            rectangle.setStyle(rectangle.getStyle() + "-fx-fill: #556b2f");
+            welcomeText.setStyle(welcomeText.getStyle() + "-fx-text-fill: BLACK");
+            for(Button przycisk : ButtonList)
+            {
+                przycisk.setStyle(
+                        "-fx-background-color: #696969;\n" +
+                        "    -fx-background-insets: 0,1,2,3;\n" +
+                        "    -fx-background-radius: 3,2,2,2;\n" +
+                        "    -fx-text-fill: beige;\n" +
+                        "    -fx-font-size: 14px;");
+            }
+        }
     }
     /**Metoda obsługująca kliknięcie w zalogowywanie/wylogowywanie z aplikacji*/
     @FXML
@@ -219,4 +251,26 @@ public class ControllerMain {
     /**Metoda obsługująca odjechanie myszką z przycisku zalogowywania/wylogowywania się*/
     public void onSettingsButtonExited(MouseEvent mouseEvent) {SettingImage.setStyle("-fx-opacity:0.3;");}
 
+    public void onButtonExited(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-font-size: 14px;");
+    }
+
+    public void onButtonEntered(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #8a8a8a;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-font-size: 14px;");
+
+    }
 }

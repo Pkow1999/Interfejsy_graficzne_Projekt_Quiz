@@ -7,13 +7,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerHistory">
-    <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="600.0" text="Ostatnio rozwiązane quizy" textAlignment="CENTER" wrapText="true">
+<VBox fx:id="background" alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerHistory">
+    <Label fx:id="text" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="600.0" text="Ostatnio rozwiązane quizy" textAlignment="CENTER" wrapText="true">
       <font>
          <Font size="30.0" />
       </font>
       <graphic>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="127.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+         <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="127.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       </graphic>
    </Label>
    <SplitPane fx:id="mainSplitPane" dividerPositions="0.5, 0.5, 0.5, 0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="224.0" prefWidth="700.0">
@@ -92,6 +92,6 @@
          </SplitPane>
      </items>
    </SplitPane>
-   <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ButtonExitClick" prefHeight="34.0" prefWidth="100.0" style="-fx-background-radius: 5;" text="Wróć" />
+   <Button fx:id="exit" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ButtonExitClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="34.0" prefWidth="100.0" style="-fx-background-radius: 5;" text="Wróć" />
 
 </VBox>

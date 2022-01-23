@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -21,9 +23,15 @@ import java.util.Objects;
 
 public class ControllerHistory {
     @FXML
-    private SplitPane mainSplitPane;
+    private Button exit;
     @FXML
-    private SplitPane splitPane0,splitPane01,splitPane02,splitPane03;
+    private Label text;
+    @FXML
+    private Rectangle rectangle;
+    @FXML
+    private VBox background;
+    @FXML
+    private SplitPane mainSplitPane;
 
     @FXML
     private Label timeLabel0,timeLabel01,timeLabel02,timeLabel03;
@@ -129,6 +137,20 @@ public class ControllerHistory {
             mainSplitPane.getItems().remove(1, 5);
             mainSplitPane.setPrefHeight(41);
         }
+
+        if(ControllerSettings.backgroundColour == 1)
+        {
+            background.setStyle("-fx-background-color: darkslategray");
+            rectangle.setStyle(rectangle.getStyle() + "-fx-fill: #556b2f");
+            text.setStyle(text.getStyle() + "-fx-text-fill: BLACK");
+            exit.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-font-size: 14px;");
+        }
+
     }
 
     public void ButtonExitClick(ActionEvent event) throws IOException {
@@ -148,5 +170,29 @@ public class ControllerHistory {
     }
 
     public void onMouseButtonExited(MouseEvent mouseEvent) {
+    }
+
+
+    public void onButtonExited(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-font-size: 14px;");
+    }
+
+    public void onButtonEntered(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #8a8a8a;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-font-size: 14px;");
+
     }
 }
