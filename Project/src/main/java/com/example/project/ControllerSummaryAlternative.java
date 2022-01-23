@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /**Klasa obsługująca ekran podsumowania*/
 public class ControllerSummaryAlternative {
+    public Label label;
     @FXML
     private Button question1,question2,question3,question4,question5,question6,question7,question8,question9,question10;
     @FXML
@@ -59,20 +60,35 @@ public class ControllerSummaryAlternative {
         }
     }
     /**Metoda obsługująca wyjście z ekranu podsumowania i powrotu do ekranu głównego*/
-    public void ButtonExitClick(ActionEvent event) throws IOException, ClassNotFoundException {
-        if(ControllerMain.getLogOn())
-            serializeData();
+    public void ButtonExitClick(ActionEvent event)  {
+            try {
+                if(ControllerMain.getLogOn())
+                    serializeData();
 
-        Parent home_page_parent;
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
+                Parent home_page_parent;
+                home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
 
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(home_page_scene);
-        if(!ControllerMain.getLogOn())
-            stage.setTitle("Quizowanie!");
-        else stage.setTitle("Quizowanie - Zalogowany!");
-        stage.show();
+                Scene home_page_scene = new Scene(home_page_parent);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(home_page_scene);
+                if(!ControllerMain.getLogOn())
+                    stage.setTitle("Quizowanie!");
+                else stage.setTitle("Quizowanie - Zalogowany!");
+                stage.show();
+            }
+            catch (FileNotFoundException e)
+            {
+                label.setText(e.toString());
+                timeLabel.setText(new File(".").getAbsolutePath());
+            }
+            catch (IOException e)
+            {
+                label.setText(e.toString());
+            }
+            catch (ClassNotFoundException e)
+            {
+                label.setText(e.toString());
+            }
     }
     /**Metoda obsługująca wejście w szczegóły dotyczące danego pytania*/
     public void ButtonQuestionClick(ActionEvent event) throws IOException{
@@ -156,7 +172,7 @@ public class ControllerSummaryAlternative {
         else source.setStyle("-fx-background-color: green;");
     }
 
-    private void serializeData() throws IOException, ClassNotFoundException {
+    private void serializeData() throws IOException, ClassNotFoundException, FileNotFoundException {
         //login|arrayZOdpowiedziami|kategoria|poziomTrudnosci|procentOdpowiedzi|punktacja|czas|gamemode
         ArrayList<Integer> dane = new ArrayList<>();
         dane.add(ControllerSelectGameMode.kategoria);
@@ -173,12 +189,11 @@ public class ControllerSummaryAlternative {
         if (!theDir.exists()){
             theDir.mkdirs();
         }
-
         File playerData = new File("DAT/"+ControllerMain.loginName+".dat");
-
+        
         if(playerData.isFile())
         {
-            System.out.println("ISTNIEJE");
+            label.setText("ISTNIEJE");
 
             FileInputStream fis = new FileInputStream(playerData);
 
@@ -193,11 +208,11 @@ public class ControllerSummaryAlternative {
 
             oos.writeObject(data);
             oos.close();
-
+            label.setText("KONIEC ISNTIENIA");
         }
         else
         {
-            System.out.println("NIE ISTNIEJE - Tworze nowy");
+            label.setText("Nie istnieje - tworze nowy");
             FileOutputStream fos = new FileOutputStream(playerData);
 
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -206,7 +221,9 @@ public class ControllerSummaryAlternative {
 
             oos.writeObject(data);
             oos.close();
+            label.setText("KONIEC NIE ISNTIENIA");
         }
+
     }
 
 }

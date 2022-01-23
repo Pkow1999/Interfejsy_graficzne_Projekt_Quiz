@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerSummaryAlternative">
-    <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="600.0" text="Podsumowanie Quizu" textAlignment="CENTER" wrapText="true">
+    <Label fx:id="label" alignment="TOP_CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="600.0" text="Podsumowanie Quizu" textAlignment="CENTER" wrapText="true">
       <font>
          <Font size="30.0" />
       </font>
