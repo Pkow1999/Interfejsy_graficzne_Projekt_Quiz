@@ -3,20 +3,15 @@ package com.example.project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -32,6 +27,7 @@ public class ControllerSummaryAlternative {
     @FXML
     private Label timeLabel;
 
+    private int counter = 0;
     static public int numbers = 0;
     /**Zmienna przechowywująca indeks pytania*/
     public static int index;
@@ -39,7 +35,6 @@ public class ControllerSummaryAlternative {
     @FXML
     public void initialize() {
         numbers++;
-        int counter = 0;
         ArrayList<Button> questionListLabel = new ArrayList<>(Arrays.asList(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10));
         //ustawienie dobrych odpowiedzi na kolor zielony oraz zwiekszenie licznika, a zlych na czerwony
         for(int i= 0;i<questionListLabel.size();i++)
@@ -50,18 +45,27 @@ public class ControllerSummaryAlternative {
                 counter++;
             }
         }
-
-        percentageLabel.setText(counter * 10 +"%");
-        timeLabel.setText(Questions.getTime()+" sek.");
-        punctationLabel.setText(Questions.getPunctation()+" pkt.");
+        if(Questions.gamemode)
+        {
+            percentageLabel.setText(counter * 10 +"%");
+            timeLabel.setText(Questions.getTime()+" sek.");
+            punctationLabel.setText(Questions.getPunctation()+" pkt.");
+        }
+        else
+        {
+            percentageLabel.setText(counter * 10 +"%");
+            timeLabel.setText("Tryb Nauki");
+            punctationLabel.setText("Tryb Nauki");
+        }
     }
     /**Metoda obsługująca wyjście z ekranu podsumowania i powrotu do ekranu głównego*/
-    public void ButtonExitClick(ActionEvent event) throws IOException {
-        Parent home_page_parent;
-        //to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
-        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));//to sie rozwala - bo nakladamy kolejna wartswe zamiast wrocic do poprzedniej
+    public void ButtonExitClick(ActionEvent event) throws IOException, ClassNotFoundException {
+        if(ControllerMain.getLogOn())
+            serializeData();
 
-        //TODO
+        Parent home_page_parent;
+        home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-view.fxml")));
+
         Scene home_page_scene = new Scene(home_page_parent);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(home_page_scene);
@@ -151,4 +155,58 @@ public class ControllerSummaryAlternative {
             source.setStyle("-fx-background-color: red;");
         else source.setStyle("-fx-background-color: green;");
     }
+
+    private void serializeData() throws IOException, ClassNotFoundException {
+        //login|arrayZOdpowiedziami|kategoria|poziomTrudnosci|procentOdpowiedzi|punktacja|czas|gamemode
+        ArrayList<Integer> dane = new ArrayList<>();
+        dane.add(ControllerSelectGameMode.kategoria);
+        dane.add(ControllerSelectGameMode.intLevelOfDifficulty);
+        dane.add(counter);
+        dane.add(Questions.getPunctation());
+        dane.add(Questions.getTime());
+        if(Questions.gamemode)
+            dane.add(1);
+        else
+            dane.add(0);
+
+        File theDir = new File("DAT");
+        if (!theDir.exists()){
+            theDir.mkdirs();
+        }
+
+        File playerData = new File("DAT/"+ControllerMain.loginName+".dat");
+
+        if(playerData.isFile())
+        {
+            System.out.println("ISTNIEJE");
+
+            FileInputStream fis = new FileInputStream(playerData);
+
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            HistoryData data = (HistoryData) ois.readObject();
+            ois.close();
+            data.saveData(Questions.odpowiedzi,dane);
+            FileOutputStream fos = new FileOutputStream(playerData);
+
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(data);
+            oos.close();
+
+        }
+        else
+        {
+            System.out.println("NIE ISTNIEJE - Tworze nowy");
+            FileOutputStream fos = new FileOutputStream(playerData);
+
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            HistoryData data = new HistoryData(ControllerMain.loginName, Questions.odpowiedzi, dane);
+
+            oos.writeObject(data);
+            oos.close();
+        }
+    }
+
 }

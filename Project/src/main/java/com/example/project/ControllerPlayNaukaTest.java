@@ -119,10 +119,11 @@ public class ControllerPlayNaukaTest  {
         time = STARTTIME;
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
-        Button1.setDisable(true);
-        Button2.setDisable(true);
-        Button3.setDisable(true);
-        Button4.setDisable(true);
+        exitImage.setDisable(true);
+        for(Button przycisk : przyciski)
+        {
+            przycisk.setDisable(true);
+        }
         //HEJ wyrażenie lambda! które obsługuje nam zmiane licznika co sekunde!
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
             System.out.println(time);
@@ -143,7 +144,20 @@ public class ControllerPlayNaukaTest  {
                 else {
                     System.out.println("Niepoprawna!");
                     ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: red;");
+                    for(Button przycisk : przyciski)
+                    {
+                        if(przycisk.getText().equals(zasobnik.get(Questions.getIndex())[1]))
+                        {
+                            przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: green;");
+                        }
+                    }
                 }
+
+                for(Button przycisk : przyciski) {
+                    przycisk.setDisable(false);
+                    przycisk.setOnAction(null);
+                }
+                Questions.odpowiedzi.add(((Button)actionEvent.getSource()).getText());//wsadzamy dana odpowiedz (nawet jak jest zla) to listy aby pozniej ja wyswietlic w podsumowaniu
                 Questions.incrementIndex();
                 time = STARTTIME;
                 timeline = new Timeline();

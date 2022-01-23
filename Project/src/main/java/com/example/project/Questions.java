@@ -9,6 +9,8 @@ import java.util.Arrays;
 
 /**Klasa zawierająca wszystkie pytania i metody/pola pomocnicze*/
 public class Questions {
+    /**Zmienna przechowywujaca gamemode*/
+    static public boolean gamemode;
     /**Zmienna zawierająca aktualny index pytania*/
     static private int questionIndex = 0;
     /**Zmeinna zawierająca całkowity czas rozwiązywanych pytań*/
@@ -42,7 +44,7 @@ public class Questions {
     static public final ArrayList<String[]> polskiPytaniaEasy = new ArrayList<>(
             Arrays.asList(
                     new String[]{"Ile sylab ma wyraz lokomotywa?","5","3","8","10"},
-                    new String[]{"Na jakie pytanie odpowiada biernik?","kogo? co?","kto? co?","kogo? czego?","1komu? czemu?"},
+                    new String[]{"Na jakie pytanie odpowiada biernik?","kogo? co?","kto? co?","kogo? czego?","komu? czemu?"},
                     new String[]{"Jakie powieści pisał Stanisław Lem?","Science-fiction","Kryminalne","Przygodowe","Historyczne"},
                     new String[]{"Jaką częścią mowy jest wyraz hej!?","Wykrzyknieniem","Partykułą","Spójnikiem","Zaimkiem"},
                     new String[]{"Jak nazywa się utwór zawierajacy opis koncertu Wojskiego?","Pan Tadeusz","Pan Wołodyjowski","W pustyni i puszczy","Akademia Pana Kleksa"},
@@ -86,7 +88,7 @@ public class Questions {
                             "jobbing", "knowledge"},
                     new String[]{"Could you please repeat your sentence? I could not make_________what you said.",
                             "out", "meaning", "up", "over"},
-                    new String[]{"I will take_______th  e new responsibilities gladly.", "on", "into", "up", "in"},
+                    new String[]{"I will take_______the new responsibilities gladly.", "on", "into", "up", "in"},
                     new String[]{"This is a private conversation – please_______your own business!", "mind", "state",
                             "care for", "think of"},
                     new String[]{"_________she hardly did any studying before the exam, she managed to pass.",

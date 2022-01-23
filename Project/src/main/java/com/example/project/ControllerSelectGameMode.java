@@ -118,6 +118,7 @@ public class ControllerSelectGameMode {
             Questions.resetPunctation();
             Questions.resetAnswers();
             Questions.odpowiedzi.clear();
+            Questions.gamemode = gameMode;
             if(gameMode)
                 home_page_parent= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("question-view.fxml")));
             else

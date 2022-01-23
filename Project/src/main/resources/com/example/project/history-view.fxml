@@ -25,12 +25,12 @@
                      <Font name="System Bold" size="15.0" />
                   </font>
                </Label>
-               <Label fx:id="timeLabel1" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: goldenrod;" text="Wynik Quizu">
+               <Label fx:id="percentageLabel1" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: goldenrod;" text="Wynik Quizu">
                   <font>
                      <Font name="System Bold" size="12.0" />
                   </font>
                </Label>
-               <Label fx:id="percentageLabel1" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: goldenrod;" text="Czas[s]">
+               <Label fx:id="timeLabel1" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: goldenrod;" text="Czas[s]">
                   <font>
                      <Font name="System Bold" size="12.0" />
                   </font>
@@ -49,8 +49,8 @@
                      <Font size="15.0" />
                   </font>
                </Button>
-               <Label fx:id="timeLabel0" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
-               <Label fx:id="percentageLabel0" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
+               <Label fx:id="percentageLabel0" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
+               <Label fx:id="timeLabel0" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
                <Label fx:id="punctationLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: forestgreen;" text="Punktacja" />
             </items>
          </SplitPane>
@@ -61,8 +61,8 @@
                      <Font size="15.0" />
                   </font>
                </Button>
-               <Label fx:id="timeLabel01" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
-               <Label fx:id="percentageLabel01" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
+               <Label fx:id="percentageLabel01" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
+               <Label fx:id="timeLabel01" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
                <Label fx:id="punctationLabel01" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: forestgreen;" text="Punktacja" />
             </items>
          </SplitPane>
@@ -73,8 +73,8 @@
                      <Font size="15.0" />
                   </font>
                </Button>
-               <Label fx:id="timeLabel02" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
-               <Label fx:id="percentageLabel02" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
+               <Label fx:id="percentageLabel02" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
+               <Label fx:id="timeLabel02" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
                <Label fx:id="punctationLabel02" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: forestgreen;" text="Punktacja" />
             </items>
          </SplitPane>
@@ -85,8 +85,8 @@
                      <Font size="15.0" />
                   </font>
                </Button>
-               <Label fx:id="timeLabel03" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
-               <Label fx:id="percentageLabel03" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
+               <Label fx:id="percentageLabel03" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: forestgreen;" text="Wynik Quizu" />
+               <Label fx:id="timeLabel03" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: forestgreen;" text="Czas[s]" />
                <Label fx:id="punctationLabel03" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="145.0" style="-fx-background-color: forestgreen;" text="Punktacja" />
             </items>
          </SplitPane>

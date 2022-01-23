@@ -218,4 +218,5 @@ public class ControllerMain {
 
     /**Metoda obsługująca odjechanie myszką z przycisku zalogowywania/wylogowywania się*/
     public void onSettingsButtonExited(MouseEvent mouseEvent) {SettingImage.setStyle("-fx-opacity:0.3;");}
+
 }
