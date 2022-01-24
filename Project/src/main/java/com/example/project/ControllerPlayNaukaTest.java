@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -29,6 +31,9 @@ public class ControllerPlayNaukaTest  {
     @FXML
 
     public ImageView exitImage;
+    public Rectangle numerRec;
+    public Rectangle questionRec;
+    public Pane background;
     /***/
     @FXML
     private Label QuestionText;
@@ -64,6 +69,33 @@ public class ControllerPlayNaukaTest  {
         przyciski.add(Button3);
         przyciski.add(Button4);
         QuestionLabel.setText("Pytanie nr " + (Questions.getIndex() + 1) +"/10");
+
+        ArrayList<Rectangle> rectangleArrayList = new ArrayList<>();
+        rectangleArrayList.add(numerRec);
+        rectangleArrayList.add(questionRec);
+
+        ArrayList<Label> labelArrayList = new ArrayList<>();
+        labelArrayList.add(QuestionLabel);
+        labelArrayList.add(QuestionText);
+
+        if(ControllerSettings.backgroundColour == 1)
+        {
+            background.setStyle("-fx-background-color: darkslategray");
+            for(Button przycisk : przyciski)
+            {
+                przycisk.setStyle("-fx-background-radius: 10; -fx-background-color: DimGrey; -fx-border-color: beige; -fx-border-radius: 10; -fx-text-fill:black;");
+            }
+            for(Rectangle rec : rectangleArrayList)
+            {
+                rec.setStyle(rec.getStyle() + "-fx-fill: #556b2f;");
+            }
+            for(Label lejbel : labelArrayList)
+            {
+                lejbel.setStyle("-fx-text-fill:black;");
+            }
+        }
+
+
         if(ControllerSelectGameMode.kategoria == 1 && ControllerSelectGameMode.intLevelOfDifficulty == 0)
         {
             zasobnik = Questions.polskiPytaniaEasy;
@@ -166,7 +198,7 @@ public class ControllerPlayNaukaTest  {
                 timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event2 ->
                 {
                     time--;
-                    System.out.println("DRUGI: " + time);
+                    QuestionText.setText("Nastepnę pytanie za: " + time);
                     if(time < 1) {
                         timeline.stop();
                         if(Questions.getIndex() > 9)//sprawdzamy czy to ostatnie pytanie

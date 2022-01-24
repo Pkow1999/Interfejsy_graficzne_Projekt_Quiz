@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,10 @@ import java.util.Objects;
 
 /**Klasa Zarządzająca metodami dodawania pytań do bazy danych*/
 public class ControllerAddQuestion {
+    @FXML
+    private Button validate;
+    @FXML
+    private Pane background;
     /**Pole tekstowe zawierające pytanie które chcemy dodać*/
     @FXML
     private TextArea textArea;
@@ -38,6 +43,19 @@ public class ControllerAddQuestion {
     /**Scena do której się odwołujemy w chwili zmieniania okna*/
     private Stage stage;
 
+
+    @FXML
+    public void initialize() {
+        if (ControllerSettings.backgroundColour == 1) {
+            background.setStyle("-fx-background-color: darkslategray");
+            validate.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: Black;\n" +
+                            "    -fx-font-size: 14px;");
+        }
+    }
     /**Metoda obsługująca wyjście z okna*/
     @FXML
     protected void onReturnButtonClick(ActionEvent event) throws IOException {
@@ -113,5 +131,27 @@ public class ControllerAddQuestion {
     /**Metoda obsługująca odjechanie myszką z przycisku wyjścia z okienka*/
     public void onExitButtonExited(MouseEvent mouseEvent) {
         exitImage.setStyle("-fx-opacity:0.3;");
+    }
+    public void onButtonExited(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: black;\n" +
+                            "    -fx-font-size: 14px;");
+    }
+
+    public void onButtonEntered(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #8a8a8a;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: black;\n" +
+                            "    -fx-font-size: 14px;");
+
     }
 }

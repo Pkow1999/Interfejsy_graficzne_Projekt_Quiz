@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerAddQuestion">
+<Pane fx:id="background" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerAddQuestion">
    <children>
       <MenuButton fx:id="category" layoutX="45.0" layoutY="68.0" mnemonicParsing="false" text="Wybierz Kategorie">
         <items>
@@ -40,6 +40,6 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="336.0" layoutY="522.0" mnemonicParsing="false" onAction="#onEnterQButtonClick" prefHeight="35.0" prefWidth="129.0" text="Zatwierdz pytanie" />
+      <Button fx:id="validate" layoutX="336.0" layoutY="522.0" mnemonicParsing="false" onAction="#onEnterQButtonClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="35.0" prefWidth="129.0" text="Zatwierdz pytanie" />
    </children>
 </Pane>

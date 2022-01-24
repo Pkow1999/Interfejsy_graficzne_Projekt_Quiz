@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -27,8 +29,11 @@ public class ControllerPlayTest  {
     public Button Button1,Button2,Button3,Button4,exitButton;
     /***/
     @FXML
-
-    public ImageView exitImage;
+    private ImageView exitImage;
+    @FXML
+    private Pane background;
+    @FXML
+    private Rectangle numerRec,timerRec,questionRec;
     /***/
     @FXML
     private Label QuestionText;
@@ -67,6 +72,33 @@ public class ControllerPlayTest  {
         przyciski.add(Button2);
         przyciski.add(Button3);
         przyciski.add(Button4);
+
+        ArrayList<Rectangle> rectangleArrayList = new ArrayList<>();
+        rectangleArrayList.add(numerRec);
+        rectangleArrayList.add(questionRec);
+        rectangleArrayList.add(timerRec);
+
+        ArrayList<Label> labelArrayList = new ArrayList<>();
+        labelArrayList.add(timerLabel);
+        labelArrayList.add(QuestionLabel);
+        labelArrayList.add(QuestionText);
+
+        if(ControllerSettings.backgroundColour == 1)
+        {
+            background.setStyle("-fx-background-color: darkslategray");
+            for(Button przycisk : przyciski)
+            {
+                przycisk.setStyle("-fx-background-radius: 10; -fx-background-color: DimGrey; -fx-border-color: beige; -fx-border-radius: 10; -fx-text-fill:black;");
+            }
+            for(Rectangle rec : rectangleArrayList)
+            {
+                rec.setStyle(rec.getStyle() + "-fx-fill: #556b2f;");
+            }
+            for(Label lejbel : labelArrayList)
+            {
+                lejbel.setStyle("-fx-text-fill:black;");
+            }
+        }
         QuestionLabel.setText("Pytanie nr " + (Questions.getIndex() + 1) +"/10");
         if(ControllerSelectGameMode.kategoria == 1 && ControllerSelectGameMode.intLevelOfDifficulty == 0)
         {

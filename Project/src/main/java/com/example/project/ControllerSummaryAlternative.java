@@ -8,7 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -19,6 +22,11 @@ import java.util.Objects;
 /**Klasa obsługująca ekran podsumowania*/
 public class ControllerSummaryAlternative {
     public Label label;
+    public VBox background;
+    public Rectangle rec;
+    public Button exit;
+    public SplitPane secondsplit;
+    public SplitPane mainsplit;
     @FXML
     private Button question1,question2,question3,question4,question5,question6,question7,question8,question9,question10;
     @FXML
@@ -35,6 +43,30 @@ public class ControllerSummaryAlternative {
     /**Metoda inicjalizująca*/
     @FXML
     public void initialize() {
+
+
+        if(ControllerSettings.backgroundColour == 1)
+        {
+            ArrayList<Label> labelArrayList = new ArrayList<>();
+            labelArrayList.add(percentageLabel);
+            labelArrayList.add(punctationLabel);
+            labelArrayList.add(timeLabel);
+            background.setStyle("-fx-background-color: darkslategray");
+            rec.setStyle(rec.getStyle() + "-fx-fill: #556b2f");
+            exit.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: Black;\n" +
+                            "    -fx-font-size: 14px;");
+            label.setStyle("-fx-text-fill: black");
+            for(Label lab : labelArrayList)
+            {
+                lab.setStyle("-fx-text-fill: black; -fx-background-color: dimgray");
+            }
+            mainsplit.setStyle("-fx-background-color: darkslategray");
+            secondsplit.setStyle("-fx-background-color: darkslategray");
+        }
         numbers++;
         ArrayList<Button> questionListLabel = new ArrayList<>(Arrays.asList(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10));
         //ustawienie dobrych odpowiedzi na kolor zielony oraz zwiekszenie licznika, a zlych na czerwony
@@ -223,6 +255,28 @@ public class ControllerSummaryAlternative {
             oos.close();
             label.setText("KONIEC NIE ISNTIENIA");
         }
+
+    }
+    public void onButtonExited(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: black;\n" +
+                            "    -fx-font-size: 14px;");
+    }
+
+    public void onButtonEntered(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #8a8a8a;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: black;\n" +
+                            "    -fx-font-size: 14px;");
 
     }
 

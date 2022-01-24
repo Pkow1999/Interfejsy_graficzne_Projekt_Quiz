@@ -147,8 +147,9 @@ public class ControllerHistory {
                     "-fx-background-color: #696969;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
+            mainSplitPane.setStyle("-fx-background-color: darkslategray");
         }
 
     }
@@ -180,7 +181,7 @@ public class ControllerHistory {
                     "-fx-background-color: #696969;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
     }
 
@@ -191,7 +192,7 @@ public class ControllerHistory {
                     "-fx-background-color: #8a8a8a;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
 
     }

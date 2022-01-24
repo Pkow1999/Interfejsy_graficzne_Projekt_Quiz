@@ -6,15 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 /**Klasa obsługująca okno wybierania kategorii, trybu, jak i poziomu trudności*/
 public class ControllerSelectGameMode {
@@ -26,6 +25,17 @@ public class ControllerSelectGameMode {
     /**Zmienna przechowywująca aktualnie wybraną kategorię*/
     public static int kategoria = 0;
 
+
+    @FXML
+    private Label wybierzGre;
+    @FXML
+    private Label wybierzTrudnosc;
+    @FXML
+    private Label wybierzKategorie;
+    @FXML
+    private Pane background;
+    @FXML
+    private Button playButton;
     @FXML
     public boolean gameMode;
     public static int intLevelOfDifficulty;
@@ -49,6 +59,36 @@ public class ControllerSelectGameMode {
     public void initialize()
     {
         errors = new Boolean[]{true, true, true};
+        ArrayList<RadioButton> radioButtonArrayList = new ArrayList<>();
+        radioButtonArrayList.add(test);
+        radioButtonArrayList.add(nauka);
+        radioButtonArrayList.add(szkolaPodstawowa);
+        radioButtonArrayList.add(szkolaSrednia);
+        radioButtonArrayList.add(powtorkaDoMatury);
+
+        ArrayList<Label> labelArrayList = new ArrayList<>();
+        labelArrayList.add(wybierzGre);
+        labelArrayList.add(wybierzTrudnosc);
+        labelArrayList.add(wybierzKategorie);
+
+        if(ControllerSettings.backgroundColour == 1)
+        {
+            background.setStyle("-fx-background-color: darkslategray");
+            playButton.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: Black;\n" +
+                            "    -fx-font-size: 30px;");
+            for(RadioButton redio : radioButtonArrayList)
+            {
+                redio.setStyle("-fx-text-fill: BLACK");
+            }
+            for(Label lejbel : labelArrayList)
+            {
+                lejbel.setStyle("-fx-text-fill: BLACK");
+            }
+        }
     }
     /**Metoda obsługująca wyboru trybu gry*/
     public void onModeRadioClick(ActionEvent event) {
@@ -60,6 +100,7 @@ public class ControllerSelectGameMode {
             gameMode = false;
         }
         errors[0] = false;
+
     }
     /**Metoda obsługująca wyboru poziomu trudności*/
     public void onLevelOfDifficultyRadioClick(ActionEvent event) {
@@ -163,5 +204,28 @@ public class ControllerSelectGameMode {
     /**Metoda obsługująca najechanie myszki na przycisk powrotu*/
     public void onReturnButtonEntered(MouseEvent mouseEvent) {
         returnImage.setStyle("-fx-opacity:1;");
+    }
+    @FXML
+    public void onButtonExited(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #696969;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: black;\n" +
+                            "    -fx-font-size: 30px;");
+    }
+    @FXML
+    public void onButtonEntered(MouseEvent mouseEvent) {
+        Button but = (Button) mouseEvent.getSource();
+        if(ControllerSettings.backgroundColour == 1)
+            but.setStyle(
+                    "-fx-background-color: #8a8a8a;\n" +
+                            "    -fx-background-insets: 0,1,2,3;\n" +
+                            "    -fx-background-radius: 3,2,2,2;\n" +
+                            "    -fx-text-fill: black;\n" +
+                            "    -fx-font-size: 30px;");
+
     }
 }

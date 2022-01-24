@@ -85,7 +85,7 @@ public class ControllerMain {
             LoginText.setText("Zaloguj:");
         }
 
-        //0-gradient 1-ciemny 2-jasny
+        //0-gradient 1-ciemny
         if(ControllerSettings.backgroundColour == 1)
         {
             background.setStyle("-fx-background-color: darkslategray");
@@ -97,7 +97,7 @@ public class ControllerMain {
                         "-fx-background-color: #696969;\n" +
                         "    -fx-background-insets: 0,1,2,3;\n" +
                         "    -fx-background-radius: 3,2,2,2;\n" +
-                        "    -fx-text-fill: beige;\n" +
+                        "    -fx-text-fill: Black;\n" +
                         "    -fx-font-size: 14px;");
             }
         }
@@ -258,7 +258,7 @@ public class ControllerMain {
                     "-fx-background-color: #696969;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
     }
 
@@ -269,7 +269,7 @@ public class ControllerMain {
                     "-fx-background-color: #8a8a8a;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
 
     }

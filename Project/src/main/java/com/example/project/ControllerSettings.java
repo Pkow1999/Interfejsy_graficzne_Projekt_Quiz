@@ -25,13 +25,13 @@ public class ControllerSettings {
     @FXML
     private Pane background;
     @FXML
-    private MenuItem Bright,Dark,Gradient;
+    private MenuItem Dark,Gradient;
     @FXML
     private ImageView exitImage;
     @FXML
     private MenuButton backgroundMenu;
     @FXML
-    private Label numberCompletedQuiz,skonczonychquizow,motyw,login;
+    private Label motyw,login;
     private ArrayList<Label> labelArrayList = new ArrayList<>();
     @FXML
     private TextField loginField;
@@ -39,20 +39,6 @@ public class ControllerSettings {
     public static int backgroundColour = 0;
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        numberCompletedQuiz.setText(String.valueOf(ControllerSummaryAlternative.numbers));
-        try {
-            FileInputStream fis = new FileInputStream("DAT/"+ControllerMain.loginName+".dat");
-
-            ObjectInputStream ois = new ObjectInputStream(fis);
-
-            data = (HistoryData) ois.readObject();
-            ois.close();
-            numberCompletedQuiz.setStyle(String.valueOf(data.getCounter()));
-        }catch (FileNotFoundException e)
-        {
-        }
-
-        labelArrayList.add(skonczonychquizow);
         labelArrayList.add(motyw);
         labelArrayList.add(login);
 
@@ -65,10 +51,6 @@ public class ControllerSettings {
         if(backgroundColour == 1)
         {
             backgroundMenu.setText(Dark.getText());
-        }
-        else if(backgroundColour == 2)
-        {
-            backgroundMenu.setText(Bright.getText());
         }
         else if(backgroundColour == 0)
         {
@@ -101,8 +83,6 @@ public class ControllerSettings {
             backgroundColour = 0;
         else if(backgroundMenu.getText().equals(Dark.getText()))
             backgroundColour = 1;
-        else if(backgroundMenu.getText().equals(Bright.getText()))
-            backgroundColour = 3;
         changeColor(backgroundColour);
 
     }
@@ -114,9 +94,6 @@ public class ControllerSettings {
         else if(event.getTarget().equals(Dark)) {
             backgroundMenu.setText(Dark.getText());
         }
-        else if (event.getTarget().equals(Bright)) {
-            backgroundMenu.setText(Bright.getText());
-        }
     }
     private void changeColor(int backgroundColour)
     {
@@ -126,7 +103,7 @@ public class ControllerSettings {
                     "-fx-background-color: #696969;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
             for (Label lejbel : labelArrayList)
             {
@@ -142,7 +119,7 @@ public class ControllerSettings {
                     "-fx-background-color: #696969;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
     }
 
@@ -153,7 +130,7 @@ public class ControllerSettings {
                     "-fx-background-color: #8a8a8a;\n" +
                             "    -fx-background-insets: 0,1,2,3;\n" +
                             "    -fx-background-radius: 3,2,2,2;\n" +
-                            "    -fx-text-fill: beige;\n" +
+                            "    -fx-text-fill: black;\n" +
                             "    -fx-font-size: 14px;");
 
     }

@@ -11,17 +11,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerSelectGameMode">
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to top, darkcyan, #ffffff);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ControllerSelectGameMode">
    <children>
-      <Label alignment="CENTER" layoutX="262.0" layoutY="14.0" prefHeight="50.0" prefWidth="250.0" text="Wybierz tryb gry">
+      <Label fx:id="wybierzGre" alignment="CENTER" layoutX="262.0" layoutY="14.0" prefHeight="50.0" prefWidth="250.0" text="Wybierz tryb gry">
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="199.0" layoutY="174.0" prefHeight="50.0" prefWidth="377.0" text="Wybierz poziom trudności">
+      <Label fx:id="wybierzTrudnosc" alignment="CENTER" layoutX="199.0" layoutY="174.0" prefHeight="50.0" prefWidth="377.0" text="Wybierz poziom trudności">
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="262.0" layoutY="377.0" prefHeight="50.0" prefWidth="250.0" text="Wybierz kategorię">
+      <Label fx:id="wybierzKategorie" alignment="CENTER" layoutX="262.0" layoutY="377.0" prefHeight="50.0" prefWidth="250.0" text="Wybierz kategorię">
          <font>
             <Font size="30.0" />
          </font></Label>
@@ -51,7 +51,7 @@
          <font>
             <Font size="20.0" />
          </font></RadioButton>
-      <Button fx:id="playButton" layoutX="274.0" layoutY="520.0" mnemonicParsing="false" onAction="#onPlayButtonClick" prefHeight="40.0" prefWidth="225.0" text="Zagraj">
+      <Button fx:id="playButton" layoutX="274.0" layoutY="520.0" mnemonicParsing="false" onAction="#onPlayButtonClick" onMouseEntered="#onButtonEntered" onMouseExited="#onButtonExited" prefHeight="40.0" prefWidth="225.0" text="Zagraj">
          <font>
             <Font size="30.0" />
          </font></Button>
