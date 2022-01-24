@@ -161,6 +161,9 @@ public class ControllerPlayTest  {
             if(time < 1) {
                 timeline.stop();
 
+                Questions.addTime(20);
+                Questions.odpowiedzi.add("");//wsadzamy zla odpowiedz do listy aby pozniej ja wyswietlic w podsumowaniu
+
                 Questions.incrementIndex();
                 if(Questions.getIndex() > 9)
                 {
