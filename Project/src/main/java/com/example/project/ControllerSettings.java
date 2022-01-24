@@ -110,6 +110,14 @@ public class ControllerSettings {
                 lejbel.setStyle(lejbel.getStyle() + "-fx-text-fill: beige;");
             }
         }
+        else if(backgroundColour == 0) {
+            background.setStyle("linear-gradient(to top, darkcyan, #ffffff)");
+            button.setStyle("");
+            for (Label lejbel : labelArrayList)
+            {
+                lejbel.setStyle(lejbel.getStyle() + "");
+            }
+        }
     }
 
     public void onButtonExited(MouseEvent mouseEvent) {
