@@ -171,18 +171,23 @@ public class ControllerPlayNaukaTest  {
                     System.out.println("POPRAWNA ODPOWIEDZ!");
                     Questions.increasePunctation(time);
                     Questions.changeAnswer(Questions.getIndex());
+                    for(Button przycisk : przyciski)
+                    {
+                        przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: red;");
+                    }
                     ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: green;");
                 }
                 else {
                     System.out.println("Niepoprawna!");
-                    ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: red;");
                     for(Button przycisk : przyciski)
                     {
-                        if(przycisk.getText().equals(zasobnik.get(Questions.getIndex())[1]))
-                        {
+                        if (przycisk.getText().equals(zasobnik.get(Questions.getIndex())[1])) {
                             przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: green;");
+                        } else {
+                            przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: red;");
                         }
                     }
+                    ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: #C70039 ;");
                 }
 
                 for(Button przycisk : przyciski) {
