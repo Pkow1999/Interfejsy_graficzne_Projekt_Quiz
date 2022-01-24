@@ -173,7 +173,7 @@ public class ControllerPlayNaukaTest  {
                     Questions.changeAnswer(Questions.getIndex());
                     for(Button przycisk : przyciski)
                     {
-                        przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: red;");
+                        przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: lightcoral;");
                     }
                     ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: green;");
                 }
@@ -184,10 +184,10 @@ public class ControllerPlayNaukaTest  {
                         if (przycisk.getText().equals(zasobnik.get(Questions.getIndex())[1])) {
                             przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: green;");
                         } else {
-                            przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: red;");
+                            przycisk.setStyle(przycisk.getStyle() + "-fx-background-color: lightcoral;");
                         }
                     }
-                    ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: #C70039 ;");
+                    ((Button)actionEvent.getSource()).setStyle(((Button)actionEvent.getSource()).getStyle() + "-fx-background-color: red ;");
                 }
 
                 for(Button przycisk : przyciski) {

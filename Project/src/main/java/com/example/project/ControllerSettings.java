@@ -55,7 +55,6 @@ public class ControllerSettings {
         else if(backgroundColour == 0)
         {
             backgroundMenu.setText(Gradient.getText());
-
         }
         changeColor(backgroundColour);
     }
@@ -111,11 +110,11 @@ public class ControllerSettings {
             }
         }
         else if(backgroundColour == 0) {
-            background.setStyle("linear-gradient(to top, darkcyan, #ffffff)");
+            background.setStyle("-fx-background-color: linear-gradient(to top, darkcyan, #ffffff)");
             button.setStyle("");
             for (Label lejbel : labelArrayList)
             {
-                lejbel.setStyle(lejbel.getStyle() + "");
+                lejbel.setStyle("");
             }
         }
     }
