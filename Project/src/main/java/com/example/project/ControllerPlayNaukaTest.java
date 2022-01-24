@@ -199,6 +199,11 @@ public class ControllerPlayNaukaTest  {
                 {
                     time--;
                     QuestionText.setText("Nastepnę pytanie za: " + time);
+
+                    if (Questions.getIndex() == 10) {
+                        QuestionText.setText("Podsumowanie za: " + time);
+                    }
+
                     if(time < 1) {
                         timeline.stop();
                         if(Questions.getIndex() > 9)//sprawdzamy czy to ostatnie pytanie
